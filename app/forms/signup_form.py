@@ -10,7 +10,7 @@ def user_exists(field):
     if user:
         raise ValidationError('Email address is already in use.')
 
-def username_exists(form, field):
+def username_exists(field):
     username = field.data
     user = User.query.filter(User.username == username).first()
     if user:
