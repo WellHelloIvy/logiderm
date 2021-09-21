@@ -4,13 +4,13 @@ from wtforms.validators import DataRequired, ValidationError
 from app.models import User
 
 
-def user_exists(field):
+def user_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if user:
         raise ValidationError('Email address is already in use.')
 
-def username_exists(field):
+def username_exists(form, field):
     username = field.data
     user = User.query.filter(User.username == username).first()
     if user:

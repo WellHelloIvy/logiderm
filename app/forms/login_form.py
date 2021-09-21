@@ -3,7 +3,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import User
 
-def user_exists(field):
+def user_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if not user:
