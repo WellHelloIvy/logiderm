@@ -11,3 +11,5 @@ class Attribute(db.Model):
             'id': self.id,
             'name': self.name,
         }
+
+    products = db.relationship("Product", secondary = "products_joins_attributes", back_populates = 'attributes')

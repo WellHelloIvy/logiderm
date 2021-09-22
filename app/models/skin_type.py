@@ -11,3 +11,5 @@ class SkinType(db.Model):
             'id': self.id,
             'name': self.name,
         }
+
+    users = db.relationship("User", secondary = "users_joins_skin_types", back_populates = 'skin_types')

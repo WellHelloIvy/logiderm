@@ -11,3 +11,6 @@ class Concern(db.Model):
             'id': self.id,
             'name': self.name,
         }
+
+    users = db.relationship("User", secondary = "users_joins_concerns", back_populates = 'concerns')
+    products = db.relationship("Product", secondary = "products_joins_concerns", back_populates = 'concerns')

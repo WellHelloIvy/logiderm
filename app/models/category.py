@@ -11,3 +11,5 @@ class Category(db.Model):
             'id': self.id,
             'name': self.name,
         }
+
+    products = db.relationship("Product", back_populates = "category", cascade="all, delete-orphan")
