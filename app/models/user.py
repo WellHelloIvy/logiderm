@@ -51,7 +51,7 @@ class User(db.Model, UserMixin):
 
         db.Column("id", db.Integer, primary_key=True),
         db.Column('user_id', db.Integer, db.ForeignKey("users.id")),
-        db.Column('product_id', db.Integer, db.ForeignKey("productss.id")),
+        db.Column('product_id', db.Integer, db.ForeignKey("products.id")),
     )
 
     def to_dict(self):
