@@ -6,9 +6,23 @@
             "lastName": "Huynh",
             "email": "wellhelloivy@gmail.com",
             "imgUrl": "https://i.imgur.com/Sm559aj.png",
-            "concerns": [2, 3, 5, 6, 8, 9, 10],
-            "routine": [2, 34, 23],
-            "skinTypes": [2]
+            "concerns": [
+                2,
+                3,
+                5,
+                6,
+                8,
+                9,
+                10
+            ],
+            "routine": [
+                2,
+                34,
+                23
+            ],
+            "skinTypes": [
+                2
+            ]
         }
     },
     "products": {
@@ -19,8 +33,14 @@
             "brand": "Cerave",
             "price": 1699,
             "categoryId": 1,
-            "attributes": [3, 5, 7],
-            "concerns": [1]
+            "attributes": [
+                3,
+                5,
+                7
+            ],
+            "concerns": [
+                1
+            ]
         }
     },
     "labels": {
