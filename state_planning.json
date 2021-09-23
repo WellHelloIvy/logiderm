@@ -1,0 +1,89 @@
+{
+    "session": {
+        "user": {
+            "id": 1,
+            "firstName": "Ivy",
+            "lastName": "Huynh",
+            "email": "wellhelloivy@gmail.com",
+            "imgUrl": "https://i.imgur.com/Sm559aj.png",
+            "concerns": [
+                2,
+                3,
+                5,
+                6,
+                8,
+                9,
+                10
+            ],
+            "routines": [
+                2,
+                34,
+                23
+            ],
+            "skinTypes": [
+                2
+            ]
+        }
+    },
+    "products": {
+        "id": {
+            "id": 1,
+            "name": "Hydrating Facial Cleanser",
+            "ingredients": "AQUA / WATER / EAU, GLYCERIN, CETEARYL ALCOHOL, PEG-40 STEARATE, STEARYL ALCOHOL, POTASSIUM PHOSPHATE, CERAMIDE NP, CERAMIDE AP, CERAMIDE EOP, CARBOMER, GLYCERYL STEARATE, BEHENTRIMONIUM METHOSULFATE, SODIUM LAUROYL LACTYLATE, SODIUM HYALURONATE, CHOLESTEROL, PHENOXYETHANOL, DISODIUM EDTA, DIPOTASSIUM PHOSPHATE, TOCOPHEROL, PHYTOSPHINGOSINE, XANTHAN GUM, CETYL ALCOHOL, POLYSORBATE 20, ETHYLHEXYLGLYCERIN",
+            "brand": "Cerave",
+            "price": 1699,
+            "categoryId": 1,
+            "attributes": [
+                3,
+                5,
+                7
+            ],
+            "concerns": [
+                1
+            ]
+        }
+    },
+    "labels": {
+        "concerns": {
+            "1": "dryness",
+            "2": "dullness",
+            "3": "uneven_texture",
+            "4": "redness",
+            "5": "fine_lines",
+            "6": "pores",
+            "7": "anti_aging",
+            "8": "oiliness",
+            "9": "acne",
+            "10": "hyperpigmentation",
+            "11": "dark_circles",
+            "12": "puffiness",
+            "13": "blackheads"
+        },
+        "attributes": {
+            "1": "cruelty_free",
+            "2": "vegan",
+            "3": "silicone_free",
+            "4": "paraben_free",
+            "5": "fragrance_free",
+            "6": "alcohol_free",
+            "7": "oil_free",
+            "8": "uv_protection",
+        },
+        "skinTypes": {
+            "1": "dry",
+            "2": "oily",
+            "3": "balanced",
+            "4": "mature",
+            "5": "dehydrated",
+            "6": "sensitive",
+            "7": "combination",
+        },
+        "categories": {
+            "1": "cleanser",
+            "2": "moisturizer",
+            "3": "treatment",
+            "4": "sunscreen",
+            "5": "other"
+        }
+    }
+}
