@@ -12,24 +12,32 @@ const NavBar = ({ sessionUser, authenticated }) => {
           Home
         </NavLink>
       </div>
-      <div>
         {!authenticated ?
           <>
+            <div>
+              <p>Search Input Here</p>
+            </div>
             <LoginFormModal />
             <SignUpFormModal />
           </>
           :
-
           <>
             <div>
+              <NavLink to='/categories/:categoryId' activeClassName='active'>
+                VVV Category Dropdown
+              </NavLink>
+            </div>
+            <div>
+              <p>Search Input Here</p>
+            </div>
+            <div>
               <NavLink to='/profile' activeClassName='active'>
-                <h1>Profile</h1>
+                Profile
               </NavLink>
             </div>
             <LogoutButton />
           </>
         }
-      </div>
     </nav>
   );
 }
