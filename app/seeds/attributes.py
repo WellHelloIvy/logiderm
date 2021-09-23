@@ -2,28 +2,28 @@ from app.models import db, Attribute
 
 def seed_attributes():
     cruelty_free = Attribute(
-        name='cruelty_free'),
+        name='cruelty_free')
 
     vegan = Attribute(
-        name='vegan'),
+        name='vegan')
 
     silicone_free = Attribute(
-        name='silicone_free'),
+        name='silicone_free')
 
     paraben_free = Attribute(
-        name='paraben_free'),
+        name='paraben_free')
 
     fragrance_free = Attribute(
-        name='fragrance_free'),
+        name='fragrance_free')
 
     alcohol_free = Attribute(
-        name='alcohol_free'),
+        name='alcohol_free')
 
     oil_free = Attribute(
-        name='oil_free'),
+        name='oil_free')
 
     uv_protection = Attribute(
-        name='uv_protection'),
+        name='uv_protection')
 
     db.session.add(cruelty_free)
     db.session.add(vegan)

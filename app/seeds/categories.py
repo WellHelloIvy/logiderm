@@ -2,16 +2,16 @@ from app.models import db, Category
 
 def seed_categories():
     cleanser = Category(
-        name='cleanser'),
+        name='cleanser')
 
     moisturizer = Category(
-        name='moisturizer'),
+        name='moisturizer')
 
     treatment = Category(
-        name='treatment'),
+        name='treatment')
 
     sunscreen = Category(
-        name='sunscreen'),
+        name='sunscreen')
 
     db.session.add(cleanser)
     db.session.add(moisturizer)

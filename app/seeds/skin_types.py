@@ -2,25 +2,25 @@ from app.models import db, SkinType
 
 def seed_skin_types():
     dry = SkinType(
-        name='dry'),
+        name='dry')
 
     oily = SkinType(
-        name='oily'),
+        name='oily')
 
     balanced = SkinType(
-        name='balanced'),
+        name='balanced')
 
     mature = SkinType(
-        name='mature'),
+        name='mature')
 
     dehydrated = SkinType(
-        name='dehydrated'),
+        name='dehydrated')
 
     sensitive = SkinType(
-        name='sensitive'),
+        name='sensitive')
 
     combination = SkinType(
-        name='combination'),
+        name='combination')
 
     db.session.add(dry)
     db.session.add(oily)

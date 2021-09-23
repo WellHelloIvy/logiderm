@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 02c2ab14954d
+Revision ID: 25ad020cb2a3
 Revises: 
-Create Date: 2021-09-22 14:24:51.733656
+Create Date: 2021-09-22 22:50:50.771505
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '02c2ab14954d'
+revision = '25ad020cb2a3'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -51,8 +51,8 @@ def upgrade():
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('category_id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.String(length=40), nullable=False),
-    sa.Column('brand', sa.String(length=40), nullable=False),
+    sa.Column('name', sa.String(length=100), nullable=False),
+    sa.Column('brand', sa.String(length=100), nullable=False),
     sa.Column('price', sa.Integer(), nullable=True),
     sa.Column('ingredients', sa.String(length=5000), nullable=False),
     sa.ForeignKeyConstraint(['category_id'], ['categories.id'], ),
@@ -77,8 +77,8 @@ def upgrade():
     op.create_table('products_joins_attributes',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=True),
-    sa.Column('attributes_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['attributes_id'], ['attributes.id'], ),
+    sa.Column('attribute_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['attribute_id'], ['attributes.id'], ),
     sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

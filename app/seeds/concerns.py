@@ -2,43 +2,43 @@ from app.models import db, Concern
 
 def seed_concerns():
     dryness = Concern(
-        name='dryness'),
+        name='dryness')
 
     dullness = Concern(
-        name='dullness'),
+        name='dullness')
 
     uneven_texture = Concern(
-        name='uneven_texture'),
+        name='uneven_texture')
 
     redness = Concern(
-        name='redness'),
+        name='redness')
 
     fine_lines = Concern(
-        name='fine_lines'),
+        name='fine_lines')
 
     pores = Concern(
-        name='pores'),
+        name='pores')
 
     anti_aging = Concern(
-        name='anti_aging'),
+        name='anti_aging')
 
     oiliness = Concern(
-        name='oiliness'),
+        name='oiliness')
 
     acne = Concern(
-        name='acne'),
+        name='acne')
 
     hyperpigmentation = Concern(
-        name='hyperpigmentation'),
+        name='hyperpigmentation')
 
     dark_circles = Concern(
-        name='dark_circles'),
+        name='dark_circles')
 
     puffiness = Concern(
-        name='puffiness'),
+        name='puffiness')
 
     blackheads = Concern(
-        name='blackheads'),
+        name='blackheads')
 
     db.session.add(dryness)
     db.session.add(dullness)

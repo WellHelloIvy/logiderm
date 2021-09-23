@@ -12,4 +12,4 @@ class Category(db.Model):
             'name': self.name,
         }
 
-    products = db.relationship("Product", back_populates = "category", cascade="all, delete-orphan")
+    products = db.relationship("Product", back_populates = "categories", cascade="all, delete")

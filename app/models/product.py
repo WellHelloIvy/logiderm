@@ -1,12 +1,28 @@
 from .db import db
 
+products_joins_concerns = db.Table(
+    "products_joins_concerns",
+
+    db.Column("id", db.Integer, primary_key=True),
+    db.Column('product_id', db.Integer, db.ForeignKey("products.id")),
+    db.Column('concern_id', db.Integer, db.ForeignKey("concerns.id")),
+)
+
+products_joins_attributes = db.Table(
+    "products_joins_attributes",
+
+    db.Column("id", db.Integer, primary_key=True),
+    db.Column('product_id', db.Integer, db.ForeignKey("products.id")),
+    db.Column('attribute_id', db.Integer, db.ForeignKey("attributes.id")),
+)
+
 class Product(db.Model):
     __tablename__ = 'products'
 
     id = db.Column(db.Integer, primary_key=True)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
-    name = db.Column(db.String(40), nullable=False)
-    brand = db.Column(db.String(40), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    brand = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Integer)
     ingredients = db.Column(db.String(5000), nullable=False)
 
@@ -14,23 +30,7 @@ class Product(db.Model):
 
     attributes = db.relationship("Attribute", secondary = "products_joins_attributes")
 
-    products_joins_attributes = db.Table(
-        "products_joins_attributes",
-
-        db.Column("id", db.Integer, primary_key=True),
-        db.Column('product_id', db.Integer, db.ForeignKey("products.id")),
-        db.Column('attributes_id', db.Integer, db.ForeignKey("attributes.id")),
-    )
-
     concerns = db.relationship("Concern", secondary = "products_joins_concerns")
-
-    products_joins_concerns = db.Table(
-        "products_joins_concerns",
-
-        db.Column("id", db.Integer, primary_key=True),
-        db.Column('product_id', db.Integer, db.ForeignKey("products.id")),
-        db.Column('concern_id', db.Integer, db.ForeignKey("concerns.id")),
-    )
 
     def to_dict(self):
         attributes = [attribute.id for attribute in self.attributes]
