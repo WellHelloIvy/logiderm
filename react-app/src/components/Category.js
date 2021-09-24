@@ -1,5 +1,4 @@
 import React from 'react';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import Products from './Products';

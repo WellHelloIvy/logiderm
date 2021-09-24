@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SignUpFormModal from './SignUpFormModal';
@@ -8,6 +9,11 @@ import CategoriesDropdown from './CategoriesDropdown';
 const NavBar = ({ sessionUser, authenticated }) => {
 
   const [renderCategoriesDropdown, setRenderCategoriesDropdown] = useState(false);
+
+  const labels = useSelector(state => state.labels);
+  const categoriesArr =labels?.categories;
+  const categoryEntries = Object.entries(categoriesArr);
+
 
   const handleClick = () => {
     setRenderCategoriesDropdown(true)
@@ -32,7 +38,7 @@ const NavBar = ({ sessionUser, authenticated }) => {
             <div>
               <button onClick={handleClick}>Not a Dropdown (apparently)</button>
               {renderCategoriesDropdown &&
-               <CategoriesDropdown setRenderCategoriesDropdown={setRenderCategoriesDropdown}/>
+               <CategoriesDropdown categoryEntries={categoryEntries} setRenderCategoriesDropdown={setRenderCategoriesDropdown}/>
               }
             </div>
             <p>Search Input Here</p>
