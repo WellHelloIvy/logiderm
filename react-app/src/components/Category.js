@@ -1,16 +1,20 @@
 import React from 'react';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import Products from './Products';
 
 function Category() {
     let { categoryId } = useParams();
-    const categoryEntry = useSelector(state => state.labels.categories[+categoryId])
 
+    const labels = useSelector(state => state.labels)
+    const category = labels?.categories[+categoryId]
+    const allProducts = Object.entries(useSelector(state => state.products))
+    let categoryProducts = allProducts.filter(product => product.categoryId === +categoryId)
 
-    return( categoryEntry &&
+    return( categoryProducts &&
         <div>
-            <h1>{categoryEntry}</h1>
+            <h1>{category}</h1>
             <Products categoryId={categoryId} />
         </div>
     )
