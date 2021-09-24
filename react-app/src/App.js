@@ -46,7 +46,7 @@ function App() {
                     <h1>Product Details Page</h1>
                 </Route>
                 <ProtectedRoute path='/profile' >
-                    <User />
+                    <User sessionUser={sessionUser} />
                 </ProtectedRoute>
             </Switch>
         </BrowserRouter>
