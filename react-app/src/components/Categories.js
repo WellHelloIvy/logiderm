@@ -7,6 +7,14 @@ function Categories() {
     return(
         <div>
             <h1>Categories</h1>
+            {
+                categories.map(category =>
+                    <p>{category}</p>
+                    )
+            }
+
         </div>
     )
 }
+
+export default Categories

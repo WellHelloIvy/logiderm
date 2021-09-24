@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SignUpFormModal from './SignUpFormModal';
 import LoginFormModal from './LoginFormModal';
+import CategoriesDropdown from './CategoriesDropdown';
+import Categories from './Categories';
 
 const NavBar = ({ sessionUser, authenticated }) => {
+
+  const [renderCategoriesDropdown, setRenderCategoriesDropdown] = useState(false);
+
+  const handleClick = () => {
+    setRenderCategoriesDropdown(true)
+  }
   return (
     <nav>
       <div>
@@ -23,10 +31,14 @@ const NavBar = ({ sessionUser, authenticated }) => {
           :
           <>
             <div>
-              <NavLink to='/categories/:categoryId' activeClassName='active'>
-                VVV Category Dropdown
-              </NavLink>
+              <button onClick={handleClick}>Not a Dropdown (apparently)</button>
+              {renderCategoriesDropdown &&
+               <CategoriesDropdown setRenderCategoriesDropdown={setRenderCategoriesDropdown}/>
+              }
             </div>
+              <NavLink to='/categories' >
+                <Categories />
+              </NavLink>
             <div>
               <p>Search Input Here</p>
             </div>

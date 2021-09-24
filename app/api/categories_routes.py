@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.models import Category, category
+from app.models import Category
 
 categories_routes = Blueprint('categories', __name__)
 
