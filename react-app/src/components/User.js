@@ -5,6 +5,11 @@ import UserConcerns from './UserConcerns';
 function User({ sessionUser }) {
     const [user, setUser] = useState({});
     const { userId } = useParams();
+    const [showConcernModal, setShowConcernModal] = useState(false);
+
+    const renderConcernModal = (e) => {
+        setShowConcernModal(true)
+    }
 
     useEffect(() => {
         if (!userId) {
@@ -34,7 +39,10 @@ function User({ sessionUser }) {
             </ul>
             <div>
                 <UserConcerns sessionUser={sessionUser} />
+                <button onClick={renderConcernModal}>Add/Edit your skin concerns</button>
             </div>
+
+            <ConcernModal setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
         </>
 
     );
