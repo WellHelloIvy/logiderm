@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import UserConcerns from './UserConcerns';
 
 function User({ sessionUser }) {
     const [user, setUser] = useState({});
@@ -31,6 +32,9 @@ function User({ sessionUser }) {
                 <li>{sessionUser.email}</li>
                 <li>{sessionUser.concerns}</li>
             </ul>
+            <div>
+                <UserConcerns sessionUser={sessionUser} />
+            </div>
         </>
 
     );
