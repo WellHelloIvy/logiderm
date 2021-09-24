@@ -1,15 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const CategoriesDropdown = ({ setRenderCategoriesDropdown, categoryEntries }) => {
-    // const categoryEntries = Object.entries(useSelector(state => state.labels.categories))
-
-
-    // const labels = useSelector(state => state.labels);
-
-    // const categoriesArr =labels?.categories;
-    // const categoryEntries = Object.entries(categoriesArr);
 
     return ( categoryEntries &&
         <div className='nav-drop-down'>

@@ -6,11 +6,14 @@ const loadLabels = (data) => ({
 });
 
 export const getLabels = () => async (dispatch) => {
-    const response = await fetch('/api/categories/');
-    if (response.ok) {
+    const responseCategories = await fetch('/api/categories/');
+    const responseAttributes = await fetch('/api/attributes/');
+    if (responseCategories.ok && responseAttributes.ok) {
         const data = {}
-        const res = await response.json();
-        data.categories = res.categories;
+        const resCategories = await responseCategories.json();
+        const resAttributes = await responseAttributes.json();
+        data.categories = resCategories.categories;
+        data.attributes = resAttributes.attributes;
         dispatch(loadLabels(data))
     }
 }
@@ -26,12 +29,17 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_LABELS:
             let allCategories = {}
+            let allAttributes = {}
             action.data.categories.forEach(category => {
                 allCategories[category.id] = category.name
             });
+            action.data.attributes.forEach(attribute => {
+                allAttributes[attribute.id] = attribute.name
+            });
             return {
                 ...state,
-                categories: { ...allCategories }
+                categories: { ...allCategories },
+                attributes: {...allAttributes}
             }
         default:
             return state;
