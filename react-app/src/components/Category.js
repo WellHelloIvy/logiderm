@@ -1,18 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import Products from './Products';
 
 function Category() {
-    const categories = Object.entries(useSelector(state => state.labels.categories));
+    let { categoryId } = useParams();
+    const categoryEntry = useSelector(state => state.labels.categories[+categoryId])
 
-    return(
+
+    return( categoryEntry &&
         <div>
-            <h1>Categories</h1>
-            {
-                categories.map(category =>
-                    <p>{category}</p>
-                    )
-            }
-
+            <h1>{categoryEntry[1]}</h1>
+            <Products categoryId={categoryId}></Products>
         </div>
     )
 }
