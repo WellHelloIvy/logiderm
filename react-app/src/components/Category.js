@@ -10,8 +10,8 @@ function Category() {
 
     return( categoryEntry &&
         <div>
-            <h1>{categoryEntry[1]}</h1>
-            <Products categoryId={categoryId}></Products>
+            <h1>{categoryEntry}</h1>
+            <Products categoryId={categoryId} />
         </div>
     )
 }

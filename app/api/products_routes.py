@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.models import Product, product
+from app.models import Product
 
 products_routes = Blueprint('products', __name__)
 

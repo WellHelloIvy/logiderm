@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Products = ({ categoryId }) => {
-    const products = Object.values(useSelector(state => state.products)).filter(product.categoryId === categoryId)
+    const products = Object.values(useSelector(state => state.products)).filter(product => product.categoryId === +categoryId)
 
     return(
         <div>
@@ -10,7 +10,7 @@ const Products = ({ categoryId }) => {
                 <div key={product.id}>
                     <p>{product.brand}</p>
                     <p>{product.name}</p>
-                    <p>{price}</p>
+                    <p>{product.price}</p>
                 </div>
             )}
         </div>
