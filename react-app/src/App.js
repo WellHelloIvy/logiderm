@@ -6,6 +6,9 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
 import { getLabels } from './store/labels';
+import Category from './components/Category';
+import { getProducts } from './store/products';
+
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -17,6 +20,7 @@ function App() {
         (async () => {
             await dispatch(authenticate());
             await dispatch(getLabels());
+            await dispatch(getProducts());
             setLoaded(true);
         })();
     }, [dispatch]);
@@ -36,7 +40,7 @@ function App() {
                     <h1>Search Results</h1>
                 </Route>
                 <Route path='/categories/:categoryId'>
-                    <h1>Product of Specific Category</h1>
+                    <Category />
                 </Route>
                 <Route path='/products/:productId'>
                     <h1>Product Details Page</h1>
