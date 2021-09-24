@@ -4,7 +4,6 @@ import LogoutButton from './auth/LogoutButton';
 import SignUpFormModal from './SignUpFormModal';
 import LoginFormModal from './LoginFormModal';
 import CategoriesDropdown from './CategoriesDropdown';
-import Categories from './Categories';
 
 const NavBar = ({ sessionUser, authenticated }) => {
 
@@ -35,8 +34,8 @@ const NavBar = ({ sessionUser, authenticated }) => {
               {renderCategoriesDropdown &&
                <CategoriesDropdown setRenderCategoriesDropdown={setRenderCategoriesDropdown}/>
               }
-              <p>Search Input Here</p>
             </div>
+            <p>Search Input Here</p>
             <span>{`Welcome, ${sessionUser?.firstName}`}</span>
             <div>
               <NavLink to='/profile' activeClassName='active'>
