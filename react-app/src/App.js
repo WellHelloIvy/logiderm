@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
+import { getLabels } from './store/labels';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -15,6 +16,7 @@ function App() {
     useEffect(() => {
         (async () => {
             await dispatch(authenticate());
+            await dispatch(getLabels());
             setLoaded(true);
         })();
     }, [dispatch]);
