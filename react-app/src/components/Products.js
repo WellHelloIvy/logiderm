@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const Products = ({ categoryId }) => {
     const products = Object.values(useSelector(state => state.products)).filter(product => product.categoryId === +categoryId)
 
-    return(
+    return (
         <div>
             {products.map(product =>
                 <div key={product.id}>

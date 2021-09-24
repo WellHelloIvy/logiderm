@@ -6,7 +6,7 @@ const loadLabels = (data) => ({
 });
 
 export const getLabels = () => async (dispatch) => {
-    const response = await fetch('api/categories');
+    const response = await fetch('/api/categories/');
     if (response.ok) {
         const data = {}
         const res = await response.json();

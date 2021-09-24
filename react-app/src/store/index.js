@@ -6,8 +6,8 @@ import labels from './labels'
 
 const rootReducer = combineReducers({
     session,
-    products,
-    labels
+    labels,
+    products
 });
 
 let enhancer;
