@@ -4,7 +4,7 @@ nav {
     justify-content: space-around;
 }
 
-.nav-drop-down {
+.dropdown {
     display: flex;
     flex-direction: column;
     border: 1px solid black;

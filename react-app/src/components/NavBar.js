@@ -16,12 +16,12 @@ const NavBar = ({ sessionUser, authenticated }) => {
   const [renderSearchDropdown, setRenderSearchDropdown] = useState(false);
 
   useEffect(() => {
-    if(!searchQuery.length) return setRenderSearchDropdown(false)
+    if (!searchQuery.length) return setRenderSearchDropdown(false)
     setRenderSearchDropdown(true)
   }, [searchQuery]);
 
   const handleSearchClick = () => {
-    if(searchQuery.length) {
+    if (searchQuery.length) {
       setRenderSearchDropdown(true)
     }
   }
@@ -29,18 +29,18 @@ const NavBar = ({ sessionUser, authenticated }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if(!searchQuery.length) return;
+    if (!searchQuery.length) return;
 
     setRenderSearchDropdown(false);
 
-    const query =searchQuery
+    const query = searchQuery
     setSearchQuery('')
 
     history.push(`/search?q=${query}`)
   }
 
   const labels = useSelector(state => state.labels);
-  const categoriesArr =labels?.categories;
+  const categoriesArr = labels?.categories;
   const categoryEntries = Object.entries(categoriesArr);
 
 
@@ -54,36 +54,36 @@ const NavBar = ({ sessionUser, authenticated }) => {
           Home
         </NavLink>
       </div>
-      <div onClick={e => e.stopPropagation()}>
-              <form onSubmit={submitHandler}>
-                <input placeholder='Search' onClick={handleSearchClick} value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
-                {renderSearchDropdown &&
-                  <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} setRenderSearchDropdown={setRenderSearchDropdown}/>
-                }
-              </form>
-        </div>
-        {!authenticated ?
-          <>
-            <LoginFormModal />
-            <SignUpFormModal />
-          </>
-          :
-          <>
-            <div>
-              <button onClick={handleMenuClick}>Not a Dropdown (apparently)</button>
-              {renderCategoriesDropdown &&
-               <CategoriesDropdown categoryEntries={categoryEntries} setRenderCategoriesDropdown={setRenderCategoriesDropdown}/>
-              }
-            </div>
-            <span>{`Welcome, ${sessionUser?.firstName}`}</span>
-            <div>
-              <NavLink to='/profile' activeClassName='active'>
-                Profile
-              </NavLink>
-            </div>
-            <LogoutButton />
-          </>
+      <div>
+        <button onClick={handleMenuClick}>Not a Dropdown (apparently)</button>
+        {renderCategoriesDropdown &&
+          <CategoriesDropdown categoryEntries={categoryEntries} setRenderCategoriesDropdown={setRenderCategoriesDropdown} />
         }
+      </div>
+      <div onClick={e => e.stopPropagation()}>
+        <form onSubmit={submitHandler}>
+          <input placeholder='Search' onClick={handleSearchClick} value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
+          {renderSearchDropdown &&
+            <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} setRenderSearchDropdown={setRenderSearchDropdown} />
+          }
+        </form>
+      </div>
+      {!authenticated ?
+        <>
+          <LoginFormModal />
+          <SignUpFormModal />
+        </>
+        :
+        <>
+          <span>{`Welcome, ${sessionUser?.firstName}`}</span>
+          <div>
+            <NavLink to='/profile' activeClassName='active'>
+              Profile
+            </NavLink>
+          </div>
+          <LogoutButton />
+        </>
+      }
     </nav>
   );
 }
