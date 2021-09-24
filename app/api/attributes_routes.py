@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.models import Attribute, attribute
+from app.models import Attribute
 
 attributes_routes = Blueprint('attributes', __name__)
 
