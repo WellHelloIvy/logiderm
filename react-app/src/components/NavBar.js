@@ -30,6 +30,7 @@ const NavBar = ({ sessionUser, authenticated }) => {
             <div>
               <p>Search Input Here</p>
             </div>
+            <span>{`Welcome, ${sessionUser?.firstName}`}</span>
             <div>
               <NavLink to='/profile' activeClassName='active'>
                 Profile
