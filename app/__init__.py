@@ -12,6 +12,7 @@ from .api.categories_routes import categories_routes
 from .api.products_routes import products_routes
 from .api.attributes_routes import attributes_routes
 from .api.concerns_routes import concerns_routes
+from .api.skin_types_routes import skin_types_routes
 
 from .seeds import seed_commands
 
@@ -35,6 +36,7 @@ app.register_blueprint(categories_routes, url_prefix='/api/categories')
 app.register_blueprint(products_routes, url_prefix='/api/products')
 app.register_blueprint(attributes_routes, url_prefix='/api/attributes')
 app.register_blueprint(concerns_routes, url_prefix='/api/concerns')
+app.register_blueprint(skin_types_routes, url_prefix='/api/skintypes')
 db.init_app(app)
 Migrate(app, db)
 
