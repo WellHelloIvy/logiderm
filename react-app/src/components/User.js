@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import UserConcerns from './UserConcerns';
 
-function User() {
+function User({ sessionUser }) {
     const [user, setUser] = useState({});
     const { userId } = useParams();
 
@@ -20,18 +21,22 @@ function User() {
         return null;
     }
 
-    return (
-        <ul>
-            <li>
-                <strong>User Id</strong> {userId}
-            </li>
-            <li>
-                <strong>Username</strong> {user.username}
-            </li>
-            <li>
-                <strong>Email</strong> {user.email}
-            </li>
-        </ul>
+    return (sessionUser &&
+        <>
+            <div>
+                <h1>{`${sessionUser.firstName}'s profile`}</h1>
+                <img src={sessionUser.imgUrl}></img>
+            </div>
+            <ul>
+                <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
+                <li>{sessionUser.email}</li>
+                <li>{sessionUser.concerns}</li>
+            </ul>
+            <div>
+                <UserConcerns sessionUser={sessionUser} />
+            </div>
+        </>
+
     );
 }
 export default User;
