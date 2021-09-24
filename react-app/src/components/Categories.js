@@ -1,0 +1,12 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+function Categories() {
+    const categories = Object.entries(useSelector(state => state.labels.categories));
+
+    return(
+        <div>
+            <h1>Categories</h1>
+        </div>
+    )
+}

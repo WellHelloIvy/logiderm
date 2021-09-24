@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SignUpFormModal from './SignUpFormModal';
-import LoginFormModal from './LogInFormModal';
+import LoginFormModal from './LoginFormModal';
 
 const NavBar = ({ sessionUser, authenticated }) => {
   return (
