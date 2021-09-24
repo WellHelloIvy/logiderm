@@ -35,11 +35,6 @@ const NavBar = ({ sessionUser, authenticated }) => {
               {renderCategoriesDropdown &&
                <CategoriesDropdown setRenderCategoriesDropdown={setRenderCategoriesDropdown}/>
               }
-            </div>
-              <NavLink to='/categories' >
-                <Categories />
-              </NavLink>
-            <div>
               <p>Search Input Here</p>
             </div>
             <span>{`Welcome, ${sessionUser?.firstName}`}</span>
