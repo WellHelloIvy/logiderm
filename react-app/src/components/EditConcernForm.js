@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { addConcern, deleteConcern } from '../store/session';
 
 const EditConcernForm = ({ setShowModal, sessionUser }) => {
     const allConcerns = Object.entries(useSelector(state => state.labels.concerns))
     const dispatch = useDispatch();
-
-    const onSubmit = async(e) => {
-        setShowModal(false)
-    }
-
-
 
     const handleClick = async(e) => {
         const clicked = e.target.classList.contains('isClicked')
@@ -28,7 +22,7 @@ const EditConcernForm = ({ setShowModal, sessionUser }) => {
     return (
         <>
             {allConcerns.map(concern =>
-            <button id={`${concern[0]}`} className={`${sessionUser.concerns.includes(+concern[0]) ? 'isClicked' : 'no'}`} onClick={handleClick}>{concern[1]}</button>)}
+            <button key={concern[0]} id={`${concern[0]}`} className={`${sessionUser.concerns.includes(+concern[0]) ? 'isClicked' : 'no'}`} onClick={handleClick}>{concern[1]}</button>)}
         </>
     )
 }

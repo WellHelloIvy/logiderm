@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_login import login_required
 from app.models import db, User
-from app.models.user import users_joins_concerns
+from app.models.user import users_joins_concerns, users_joins_products
 
 user_routes = Blueprint('users', __name__)
 
@@ -25,11 +25,18 @@ def add_user_concern(user_id, concern_id):
     user = User.query.get(user_id)
     return user.to_dict()
 
-
 @user_routes.route('/<int:user_id>/concerns/<int:concern_id>', methods=['DELETE'])
 @login_required
 def delete_user_concern(user_id, concern_id):
     db.session.execute(users_joins_concerns.delete().where(users_joins_concerns.c.concern_id == +concern_id).where(users_joins_concerns.c.user_id == +user_id))
+    db.session.commit()
+    user = User.query.get(user_id)
+    return user.to_dict()
+
+@user_routes.route('/<int:user_id>/products/<int:product_id>', methods=['POST'])
+@login_required
+def add_to_routine(user_id, product_id):
+    db.session.execute(users_joins_products.insert().values(user_id = user_id, product_id = product_id))
     db.session.commit()
     user = User.query.get(user_id)
     return user.to_dict()

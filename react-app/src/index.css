@@ -4,6 +4,10 @@ nav {
     justify-content: space-around;
 }
 
+.body{
+    padding: 0 25%;
+}
+
 .dropdown {
     display: flex;
     flex-direction: column;

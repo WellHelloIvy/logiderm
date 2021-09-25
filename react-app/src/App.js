@@ -33,23 +33,25 @@ function App() {
     return (
         <BrowserRouter>
             <NavBar sessionUser={sessionUser} authenticated={authenticated}/>
-            <Switch>
-                <Route exact path = '/' >
-                    <h1>Home Page</h1>
-                </Route>
-                <Route path='/search'>
-                    <h1>Search Results</h1>
-                </Route>
-                <Route path='/categories/:categoryId'>
-                    <Category />
-                </Route>
-                <Route path='/products/:productId'>
-                    <ProductDetails />
-                </Route>
-                <ProtectedRoute path='/profile' >
-                    <User sessionUser={sessionUser} />
-                </ProtectedRoute>
-            </Switch>
+            <div className='body'>
+                <Switch>
+                    <Route exact path = '/' >
+                        <h1>Home Page</h1>
+                    </Route>
+                    <Route path='/search'>
+                        <h1>Search Results</h1>
+                    </Route>
+                    <Route path='/categories/:categoryId'>
+                        <Category />
+                    </Route>
+                    <Route path='/products/:productId'>
+                        <ProductDetails sessionUser={sessionUser} />
+                    </Route>
+                    <ProtectedRoute path='/profile' >
+                        <User sessionUser={sessionUser} />
+                    </ProtectedRoute>
+                </Switch>
+            </div>
         </BrowserRouter>
     );
 }
