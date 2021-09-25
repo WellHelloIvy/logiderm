@@ -55,7 +55,7 @@ const NavBar = ({ sessionUser, authenticated }) => {
         </NavLink>
       </div>
       <div>
-        <button onClick={handleMenuClick}>Not a Dropdown (apparently)</button>
+        <button onClick={handleMenuClick}>Categories</button>
         {renderCategoriesDropdown &&
           <CategoriesDropdown categoryEntries={categoryEntries} setRenderCategoriesDropdown={setRenderCategoriesDropdown} />
         }
