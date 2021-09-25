@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import EditConcernForm from './EditConcernForm';
 import { Modal } from '../context/Modal';
 
-const ConcernModal = ({ showModal, setShowModal, sessionUser }) => {
+const ConcernModal = ({ sessionUser }) => {
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <>
+            <button onClick={() => setShowModal(true)}>Add/Edit your skin concerns</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditConcernForm setShowModal={setShowModal} sessionUser={sessionUser} />

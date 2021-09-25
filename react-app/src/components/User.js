@@ -40,7 +40,6 @@ function User({ sessionUser }) {
             </ul>
             <div>
                 <UserConcerns sessionUser={sessionUser} />
-                <button onClick={renderConcernModal}>Add/Edit your skin concerns</button>
             </div>
 
             <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
