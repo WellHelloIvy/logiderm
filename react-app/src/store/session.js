@@ -116,7 +116,7 @@ export const addConcern = (userId, concernId) => async (dispatch) => {
     }
 }
 export const deleteConcern = (userId, concernId) => async (dispatch) => {
-    const response = await fetch(`/api/`, {
+    const response = await fetch(`/api/users/${userId}/concerns/${concernId}`, {
         method: 'DELETE'
     });
     if(response.ok) {

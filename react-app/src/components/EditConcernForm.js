@@ -14,13 +14,13 @@ const EditConcernForm = ({ setShowModal, sessionUser }) => {
 
     const handleClick = async(e) => {
         const clicked = e.target.classList.contains('isClicked')
+        const concernId = e.target.id;
+        const userId = sessionUser.id;
         if(!clicked) {
-            const concernId = e.target.id;
-            const userId = sessionUser.id;
             dispatch(addConcern(userId, concernId))
             e.target.classList.add('isClicked')
         } else {
-            dispatch(deleteConcern())
+            dispatch(deleteConcern(userId, concernId))
             e.target.classList.remove('isClicked')
         }
     }
