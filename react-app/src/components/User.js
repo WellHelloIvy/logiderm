@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UserConcerns from './UserConcerns';
 import ConcernModal from './ConcernModal';
+import Routine from './Routine'
 
 function User({ sessionUser }) {
     const [user, setUser] = useState({});
@@ -40,9 +41,12 @@ function User({ sessionUser }) {
             </ul>
             <div>
                 <UserConcerns sessionUser={sessionUser} />
+                <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
+            </div>
+            <div>
+                <Routine sessionUser={sessionUser} />
             </div>
 
-            <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
         </>
 
     );

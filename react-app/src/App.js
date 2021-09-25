@@ -8,6 +8,7 @@ import { authenticate } from './store/session';
 import { getLabels } from './store/labels';
 import Category from './components/Category';
 import { getProducts } from './store/products';
+import ProductDetails from './components/ProductsDetails';
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
                     <Category />
                 </Route>
                 <Route path='/products/:productId'>
-                    <h1>Product Details Page</h1>
+                    <ProductDetails />
                 </Route>
                 <ProtectedRoute path='/profile' >
                     <User sessionUser={sessionUser} />
