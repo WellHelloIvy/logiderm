@@ -97,6 +97,35 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
     }
 }
 
+export const addConcern = (userId, concernId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/concerns/${concernId}`,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user_id: userId,
+            concern_id: concernId
+        })
+    });
+
+    if(response.ok) {
+        const data = await response.json();
+        dispatch(setUser(data))
+        return null;
+    }
+}
+export const deleteConcern = (userId, concernId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/concerns/${concernId}`, {
+        method: 'DELETE'
+    });
+    if(response.ok) {
+        const data = await response.json();
+        dispatch(setUser(data))
+        return null;
+    }
+}
+
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case SET_USER:

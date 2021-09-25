@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UserConcerns from './UserConcerns';
+import ConcernModal from './ConcernModal';
 
 function User({ sessionUser }) {
     const [user, setUser] = useState({});
     const { userId } = useParams();
+    const [showConcernModal, setShowConcernModal] = useState(false);
+
+    const renderConcernModal = (e) => {
+        setShowConcernModal(true)
+    }
 
     useEffect(() => {
         if (!userId) {
@@ -34,7 +40,10 @@ function User({ sessionUser }) {
             </ul>
             <div>
                 <UserConcerns sessionUser={sessionUser} />
+                <button onClick={renderConcernModal}>Add/Edit your skin concerns</button>
             </div>
+
+            <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
         </>
 
     );

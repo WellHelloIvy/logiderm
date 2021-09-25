@@ -9,3 +9,13 @@ nav {
     flex-direction: column;
     border: 1px solid black;
 }
+
+#modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.isClicked {
+    box-shadow: 0px 0px 2px 1px black;
+    background-color: blueviolet;
+}
