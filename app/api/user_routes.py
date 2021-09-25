@@ -22,4 +22,14 @@ def user(id):
 def add_user_concern(user_id, concern_id):
     db.session.execute(users_joins_concerns.insert().values(user_id = user_id, concern_id = concern_id))
     db.session.commit()
+    user = User.query.get(user_id)
+    return user.to_dict()
 
+
+@user_routes.route('/<int:user_id>/concerns/<int:concern_id>', methods=['DELETE'])
+@login_required
+def delete_user_concern(user_id, concern_id):
+    db.session.execute(users_joins_concerns.delete().where(users_joins_concerns.c.concern_id == concern_id and users_joins_concerns.c.user_id == user_id))
+    db.session.commit()
+    user = User.query.get(user_id)
+    return user.to_dict()

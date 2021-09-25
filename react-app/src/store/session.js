@@ -108,7 +108,17 @@ export const addConcern = (userId, concernId) => async (dispatch) => {
             concern_id: concernId
         })
     });
-    
+
+    if(response.ok) {
+        const data = await response.json();
+        dispatch(setUser(data))
+        return null;
+    }
+}
+export const deleteConcern = (userId, concernId) => async (dispatch) => {
+    const response = await fetch(`/api/`, {
+        method: 'DELETE'
+    });
     if(response.ok) {
         const data = await response.json();
         dispatch(setUser(data))

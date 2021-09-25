@@ -43,7 +43,7 @@ function User({ sessionUser }) {
                 <button onClick={renderConcernModal}>Add/Edit your skin concerns</button>
             </div>
 
-            <ConcernModal setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
+            <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
         </>
 
     );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { addConcern } from '../store/session';
+import { addConcern, deleteConcern } from '../store/session';
 
 const EditConcernForm = ({ setShowModal, sessionUser }) => {
     const allConcerns = Object.entries(useSelector(state => state.labels.concerns))
@@ -15,7 +15,7 @@ const EditConcernForm = ({ setShowModal, sessionUser }) => {
         const clicked = e.target.classList.contains('isClicked')
         if(!clicked) {
             const concernId = e.target.id;
-            const userId = sessionUser;
+            const userId = sessionUser.id;
             dispatch(addConcern(userId, concernId))
             e.target.classList.add('isClicked')
         } else {
