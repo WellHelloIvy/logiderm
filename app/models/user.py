@@ -54,8 +54,8 @@ class User(db.Model, UserMixin):
     routines = db.relationship("Product", secondary = "users_joins_products")
 
     def to_dict(self):
-        concerns = [concern.id for concern in self.concerns],
-        skin_types = [skin_type.id for skin_type in self.skin_types],
+        concerns = [concern.id for concern in self.concerns]
+        skin_types = [skin_type.id for skin_type in self.skin_types]
         routines = [product.id for product in self.routines]
         return {
             'id': self.id,
