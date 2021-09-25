@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UserConcerns from './UserConcerns';
+import ConcernModal from './ConcernModal';
 
 function User({ sessionUser }) {
     const [user, setUser] = useState({});
