@@ -1,7 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
 nav {
+    position: fixed;
+    top: 0px;
+    padding: 0% 30%;
+    height: 30px;
+    width: 100vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    font-family: 'Inter', sans-serif;
+    font-size: .8em;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav > div > a {
+    text-decoration: none;
+    color: black;
 }
 
 .body{
