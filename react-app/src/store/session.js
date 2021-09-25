@@ -115,6 +115,7 @@ export const addConcern = (userId, concernId) => async (dispatch) => {
         return null;
     }
 }
+
 export const deleteConcern = (userId, concernId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/concerns/${concernId}`, {
         method: 'DELETE'
@@ -136,6 +137,17 @@ export const addToRoutine = (userId, productId) => async (dispatch) => {
             user_id: userId,
             product_id: productId
         })
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(setUser(data))
+        return null;
+    }
+}
+
+export const deleteFromRoutine = (userId, productId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/products/${productId}`, {
+        method: 'DELETE'
     });
     if (response.ok) {
         const data = await response.json();

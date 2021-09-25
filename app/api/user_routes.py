@@ -40,3 +40,11 @@ def add_to_routine(user_id, product_id):
     db.session.commit()
     user = User.query.get(user_id)
     return user.to_dict()
+
+@user_routes.route('/<int:user_id>/products/<int:product_id>', methods=['DELETE'])
+@login_required
+def delete_from_routine(user_id, product_id):
+    db.session.execute(users_joins_products.delete().where(users_joins_products.c.product_id == +product_id).where(users_joins_products.c.user_id == +user_id))
+    db.session.commit()
+    user = User.query.get(user_id)
+    return user.to_dict()

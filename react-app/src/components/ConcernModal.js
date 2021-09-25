@@ -7,7 +7,7 @@ const ConcernModal = ({ sessionUser }) => {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Add/Edit your skin concerns</button>
+            <button onClick={() => setShowModal(true)}>Edit your skin concerns</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditConcernForm setShowModal={setShowModal} sessionUser={sessionUser} />
