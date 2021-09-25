@@ -126,6 +126,24 @@ export const deleteConcern = (userId, concernId) => async (dispatch) => {
     }
 }
 
+export const addToRoutine = (userId, productId) => async(dispatch) => {
+    const response = await fetch(`/api/users/${userId}/routines/${productId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user_id: userId,
+            product_id: productId
+        })
+    });
+    if(response.ok) {
+        const data = await response.json();
+        dispatch(setUser(data))
+        return null;
+    }
+}
+
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case SET_USER:
