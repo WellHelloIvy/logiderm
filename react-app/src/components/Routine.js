@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import RoutineModal from "./RoutineModal";
 
 function UserRoutine({ sessionUser }) {
     const routineIdArr = sessionUser?.routines;
@@ -15,6 +16,7 @@ function UserRoutine({ sessionUser }) {
                     </div>
                 )}
             </div>
+            <RoutineModal sessionUser={sessionUser}/>
         </div>
 
     )
