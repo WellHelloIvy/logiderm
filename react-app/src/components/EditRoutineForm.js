@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import DeleteFromRoutineModal from "./DeleteFromRoutineModal";
 
-const EditRoutineForm = ({setShowModal, sessionUser}) => {
+const EditRoutineForm = ({ sessionUser}) => {
     const [productToDeleteId, setProductToDeleteId ] = useState("")
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const routineIdArr = sessionUser.routines;
@@ -20,7 +21,7 @@ const EditRoutineForm = ({setShowModal, sessionUser}) => {
                 <div key={`${allProducts[id].id}`}>
                     <p>{`${allProducts[id].brand} ${allProducts[id].name}`}</p>
                     <button id={allProducts[id].id} onClick={renderDeleteModal}>Delete</button>
-                    {/* <DeleteProductFromRoutineModal productId={productToDeleteId} setShowModal={setShowDeleteModal} showModal={showDeleteModal}/> */}
+                    <DeleteFromRoutineModal productId={productToDeleteId} setShowModal={setShowDeleteModal} showModal={showDeleteModal} sessionUser={sessionUser}/>
                 </div>
             )}
         </>
