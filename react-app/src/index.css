@@ -20,6 +20,7 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
 }
 
 nav > div > a {
@@ -38,6 +39,9 @@ nav button {
 }
 
 .body{
+    position: absolute;
+    top: 50px;
+    width: 100vw;
     padding: 0 25%;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
@@ -46,9 +50,25 @@ nav button {
 }
 
 .dropdown {
+    position: absolute;
+    top:40px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    padding: 15% 25%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     border: 1px solid black;
+    background-color: lightgray;
+    border-top: none;
+    z-index: 2;
+}
+
+.dropdown a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 #modal-content {
