@@ -16,7 +16,7 @@ const Search = ({ searchQuery, setSearchQuery, setRenderSearchDropdown}) => {
         <div className='dropdown'>
             {searchResults.length ?
                 searchResults.map(product =>
-                    <Link key={product.id} to={`products/${product.id}`} onClick={handleClick}>
+                    <Link key={product.id} to={`/products/${product.id}`} onClick={handleClick}>
                     {product.name}
                     </Link>
                 )
