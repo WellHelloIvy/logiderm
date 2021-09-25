@@ -98,7 +98,7 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
 }
 
 export const addConcern = (userId, concernId) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/concerns/${concernId}`,{
+    const response = await fetch(`/api/users/${userId}/concerns/${concernId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ export const addConcern = (userId, concernId) => async (dispatch) => {
         })
     });
 
-    if(response.ok) {
+    if (response.ok) {
         const data = await response.json();
         dispatch(setUser(data))
         return null;
@@ -119,15 +119,15 @@ export const deleteConcern = (userId, concernId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/concerns/${concernId}`, {
         method: 'DELETE'
     });
-    if(response.ok) {
+    if (response.ok) {
         const data = await response.json();
         dispatch(setUser(data))
         return null;
     }
 }
 
-export const addToRoutine = (userId, productId) => async(dispatch) => {
-    const response = await fetch(`/api/users/${userId}/routines/${productId}`, {
+export const addToRoutine = (userId, productId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/products/${productId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ export const addToRoutine = (userId, productId) => async(dispatch) => {
             product_id: productId
         })
     });
-    if(response.ok) {
+    if (response.ok) {
         const data = await response.json();
         dispatch(setUser(data))
         return null;

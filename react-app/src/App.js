@@ -45,7 +45,7 @@ function App() {
                         <Category />
                     </Route>
                     <Route path='/products/:productId'>
-                        <ProductDetails />
+                        <ProductDetails sessionUser={sessionUser} />
                     </Route>
                     <ProtectedRoute path='/profile' >
                         <User sessionUser={sessionUser} />
