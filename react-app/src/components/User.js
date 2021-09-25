@@ -7,11 +7,7 @@ import Routine from './Routine'
 function User({ sessionUser }) {
     const [user, setUser] = useState({});
     const { userId } = useParams();
-    const [showConcernModal, setShowConcernModal] = useState(false);
-
-    const renderConcernModal = (e) => {
-        setShowConcernModal(true)
-    }
+    const [setShowConcernModal] = useState(false);
 
     useEffect(() => {
         if (!userId) {
@@ -32,7 +28,7 @@ function User({ sessionUser }) {
         <>
             <div>
                 <h1>{`${sessionUser.firstName}'s profile`}</h1>
-                <img src={sessionUser.imgUrl}></img>
+                <img alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
             </div>
             <ul>
                 <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
