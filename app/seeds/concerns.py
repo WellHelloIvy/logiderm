@@ -7,8 +7,8 @@ def seed_concerns():
     dullness = Concern(
         name='dullness')
 
-    uneven_texture = Concern(
-        name='uneven_texture')
+    texture = Concern(
+        name='texture')
 
     redness = Concern(
         name='redness')
@@ -34,15 +34,15 @@ def seed_concerns():
     dark_circles = Concern(
         name='dark_circles')
 
-    puffiness = Concern(
-        name='puffiness')
+    scarring = Concern(
+        name='scarring')
 
     blackheads = Concern(
         name='blackheads')
 
     db.session.add(dryness)
     db.session.add(dullness)
-    db.session.add(uneven_texture)
+    db.session.add(texture)
     db.session.add(redness)
     db.session.add(fine_lines)
     db.session.add(pores)
@@ -51,7 +51,7 @@ def seed_concerns():
     db.session.add(acne)
     db.session.add(hyperpigmentation)
     db.session.add(dark_circles)
-    db.session.add(puffiness)
+    db.session.add(scarring)
     db.session.add(blackheads)
 
     db.session.commit()

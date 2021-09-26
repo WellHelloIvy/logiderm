@@ -1,31 +1,32 @@
 from app.models import db, Product
+import random
+from random import seed, randint
 
 def seed_products():
-    prod1 = Product(
-        category_id=1, name='Hydrating Facial Cleanser', brand='Cerave', price='1699', ingredients='AQUA / WATER / EAU, GLYCERIN, CETEARYL ALCOHOL, PEG-40 STEARATE, STEARYL ALCOHOL, POTASSIUM PHOSPHATE, CERAMIDE NP, CERAMIDE AP, CERAMIDE EOP, CARBOMER, GLYCERYL STEARATE, BEHENTRIMONIUM METHOSULFATE, SODIUM LAUROYL LACTYLATE, SODIUM HYALURONATE, CHOLESTEROL, PHENOXYETHANOL, DISODIUM EDTA, DIPOTASSIUM PHOSPHATE, TOCOPHEROL, PHYTOSPHINGOSINE, XANTHAN GUM,'
-        )
 
-    prod2 = Product(
-        category_id=1, name='Acne Control Cleanser', brand='Cerave', price='1699', ingredients='WATER, SODIUM LAUROYL SARCOSINATE, COCAMIDOPROPYL HYDROXYSULTAINE, GLYCERIN, NIACINAMIDE, GLUCONOLACTONE, SODIUM METHYL COCOYL TAURATE, PEG-150 PENTAERYTHRITYL TETRASTEARATE, CERAMIDE NP, CERAMIDE AP, CERAMIDE EOP, CARBOMER, CALCIUM GLUCONATE, TRIETHYL CITRATE, SODIUM BENZOATE, SODIUM HYDROXIDE, SODIUM LAUROYL LACTYLATE, CHOLESTEROL, TETRASODIUM EDTA, CAPRYLYL GLYCOL, HYDROLYZED HYALURONIC ACID, TRISODIUM ETHYLENEDIAMINE DISUCCINATE, XANTHAN GUM, HECTORITE, PHYTOSPHINGOSINE, BENZOIC ACID'
-        )
+    brand_names = ['Glow Recipe', 'SEPHORA COLLECTION', 'Supergoop!', 'Youth To The People', 'Peace Out', 'First Aid Beauty', 'Farmacy', 'Tatcha', 'Skinfix', 'Topical', 'Dr. Dennis Gross Skincare', 'Drunk Elephant', 'fresh', 'Summer Fridays', 'The INKEY List', 'Fenty Skin', 'KORRES', 'OLEHENRIKSEN', 'Caudalie', 'Biossance', 'Nécessair', 'Origins', 'Tower 28 Beaut', 'iNNBEAUTY PROJEC', 'Kosa', 'FARSÁL', 'Wishful', 'EADE', 'REN Clean Skincare', 'belif', 'MILK MAKEUP', 'Josie Maran', 'Guerlain', 'Wander Beauty']
 
-    prod3 = Product(
-        category_id=2, name='Skin Soak', brand='Versed', price='1799', ingredients='Water, Hydrogenated Polyisobutene, Glycerin, 1,2-Hexanediol, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Glyceryl Stearate, PEG-100 Stearate, Squalane, Palmaria Palmata Extract, Hydrolyzed Hyaluronic Acid, Sodium Hyaluronate, Tocopheryl Acetate, Phenoxyethanol, Polysorbate 60, Sorbitan Isostearate, Cetyl Alcohol, Trisodium Ethylenediamine Disuccinate'
-        )
+    product_names = ['the honey mist', 'radiance', 'azure vie', 'gently nourish', 'skinfood', 'fragrant', 'the ultimate', 'moisture collective', 'the cool', 'peach please', 'blushup', 'the glossy', 'blendish', 'vanity lab', 'treatment serum', 'dew drops', 'glass skin kit', 'clean skin gel', 'hydrator glow', 'cleanse + purify', 'target serum', 'triple lipid peptide', 'intense repair cream', 'fresh-day serum', 'all-in-one face oil' 'superfood unity exfoliant', 'protective primer', 'toner serum']
 
-    prod4 = Product(
-        category_id=3, name='Press Restart', brand='Versed', price='2199', ingredients='WaterHelianthus Annuus (Sunflower) Seed OilSodium Acrylate/Sodium Acryloyldimethyl Taurate CopolymerRetinolBakuchiolCrithmum Maritimum ExtractGlycerinPaeonia Suffruticosa ExtractButyrospermum Parkii (Shea) ButterHydroxypropyl CyclodextrinSodium HyaluronateCarica Papaya ExtractXylitylglucosideAnhydroxylitolXylitolHippophae Rhamnoides OilTocopheryl AcetateOpuntia Conccinellifera Fruit ExtractRosa Canina Seed OilChamomilla Recutita (Matricaria) ExtractAloe Barbadensis Leaf JuiceChlorophyllCaprylic/Capric TriglycerideHydrogenated Vegetable OilNylon-12IsohexadecanePolysorbate 80TrehaloseLeuconostoc/Radish Root Ferment FiltratePhenoxyethanolEthylhexylglycerin'
-        )
+    active_ingredients_list = ['glycolic acid', 'lactic acid', 'mandelic acid', 'salicylic acid', 'bentaine salicylate', 'azelaic acid', 'benzoyl perozide', 'niacinamide', 'retinol', 'adapalene', 'tretinoin', 'Ascorbic Acid', 'Sodium Ascorbyl Phosphate', 'Magnesium Ascorbyl Phosphate', 'Sodium Ascorbate', 'Calcium Ascorbate', 'Ascorbyl Palmitate', 'Manuka honey', 'Acacia honey', 'Kanuka honey', 'royal jelly', 'propolis', 'tea tree oil', 'hyalauronic acid', 'ceramide', 'squalene', 'squalane', 'snail mucin', 'Centella Asiatica', 'Madecassoside', 'Licorice Extract', 'Urea', 'Arbutin', 'Benzoyl Peroxide', 'Beta-Glucan', 'Ubiquinone/CoQ10', 'Kojic Acid', 'Sulfur', 'Tea Tree Oil', 'Ginseng Extract']
 
-    prod5 = Product(
-        category_id=4, name='PLAY Everyday Lotion SPF 50 with Sunflower Extract', brand='Supergoop', price='3200', ingredients='Avobenzone (3%), Homosalate (10%), Octisalate (5%), Octocrylene (7.5%), Water, Acrylates Copolymer, Diisopropyl Sebacate, Glycerin, Isodecyl Neopentanoate, Isododecane, Lauryl Lactate, Cetyl Alcohol, Potassium Cetyl Phosphate, Brassica Campestris/Aleurites Fordi Oil Copolymer, Oryza Sativa (Rice) Bran Extract, Cetearyl Olivate, Ammonium Acryloyldimethyltaurate/VP Copolymer, Hydroxyacetophenone, Sorbitan Olivate, Diethylhexyl Syringylidenemalonate, Aniba Rosaeodora (Rosewood) Wood Oil, Chlorphenesin, Citrus Aurantium Dulcis (Orange) Peel Oil, Citrus Limon (Lemon) Peel Oil, Ethylhexylglycerin, Eucalyptus Globulus Leaf Oil, Ocimum Basilicum (Basil) Flower/Leaf Extract, Pelargonium Graveolens Flower Oil, Pogostemon Cablin Oil, Pentylene Glycol, 1,2-Hexanediol, Caprylyl Glycol, Xanthan Gum, Helianthus Annuus (Sunflower) Extract, Behenic Acid, Cetyl Behenate, Isostearyl Isostearate, Trisodium Ethylenediamine Disuccinate, Tocopherol, Allantoin, Rosmarinus Officinalis (Rosemary) Leaf Extract, Caprylic/Capric Triglyceride, Dexpanthenol, Pentasodium Triphosphate, Citric Acid'
-        )
+    inactive_ingredients_list = ['WATER', 'SODIUM LAUROYL SARCOSINATE', 'COCAMIDOPROPYL HYDROXYSULTAINE', 'TAURATE', 'PEG-150', 'PENTAERYTHRITYL TETRASTEARATE', 'CALCIUM GLUCONATE', 'TRIETHYL CITRATE', 'SODIUM BENZOATE', 'SODIUM HYDROXIDE', 'SODIUM LAUROYL LACTYLATE', 'CHOLESTEROL', 'TETRASODIUM EDTA', 'CAPRYLYL GLYCOL', 'TRISODIUM ETHYLENEDIAMINE DISUCCINATE', 'XANTHAN GUM', 'HECTORITE', 'PHYTOSPHINGOSINE', 'BENZOIC ACID', 'GLYCERIN', 'NIACINAMIDE', 'GLUCONOLACTONE', 'SODIUM METHYL COCOYL', 'CERAMIDE NP', 'CERAMIDE AP', 'CERAMIDE EOP', 'CARBOMER', 'CALCIUM GLUCONATE', 'TRIETHYL CITRATE', 'SODIUM BENZOATE', 'SODIUM HYDROXIDE', 'SODIUM LAUROYL LACTYLATE', 'CHOLESTEROL', 'TETRASODIUM EDTA', 'CAPRYLYL GLYCOL', 'HYDROLYZED HYALURONIC ACID', 'TRISODIUM ETHYLENEDIAMINE DISUCCINATE', 'XANTHAN GUM', 'HECTORITE', 'PHYTOSPHINGOSINE', 'BENZOIC ACID', 'DIMETHICONE/VINYL', 'DIMETHICONE', 'CROSSPOLYMER', 'CYCLOPENTASILOXANE', 'GLYCERYL STEARATE SE', 'CETYL ALCOHOL', 'DIMETHICONE', 'SACCHARIDE ISOMERATE', 'STEARIC ACID', 'PALMITIC ACID', 'GLYCINE SOJA STEROLS / SOYBEAN STEROLS', 'ALLANTOIN', 'CETEARYL ALCOHOL', 'BEHENTRIMONIUM METHOSULFATE', 'SODIUM HYDROXIDE', 'MYRISTIC ACID', 'SODIUM LAUROYL LACTYLATE', 'SODIUM BENZOATE', 'SODIUM CITRATE', 'SODIUM HYALURONATE', 'PHENOXYETHANOL', 'TOCOPHEROL', 'TRIPEPTIDE-1', 'LAURETH-9', 'CITRIC ACID', 'CAPROOYL TETRAPEPTIDE-3', 'BIOSACCHARIDE GUM-1', 'PHYTOSPHINGOSINE', 'XANTHAN GUM', 'DEXTRAN', 'ETHYLHEXYLGLYCERIN', 'BUTYLENE GLYCOL']
 
-    db.session.add(prod1)
-    db.session.add(prod2)
-    db.session.add(prod3)
-    db.session.add(prod4)
-    db.session.add(prod5)
+    for i in range(60):
+        ingredients = ['water/aqua']
+        active = random.choice(active_ingredients_list)
+        inactive = random.choices(inactive_ingredients_list, k=11)
+        product_name = random.choice(product_names)
+        brand_name = random.choice(brand_names)
+
+        ingredients.append(active)
+        ingredients.extend(inactive)
+
+        value = randint(1,4)
+        product = Product(
+            category_id=f'{value}', name=f'{product_name}', brand=f'{brand_name}', price=f'{randint(1000, 10000)}', ingredients=' '.join(ingredients)
+        )
+        db.session.add(product)
 
     db.session.commit()
 
