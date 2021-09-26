@@ -6,8 +6,13 @@ function ProductDetails({ sessionUser }) {
     const dispatch = useDispatch()
     let { productId } = useParams()
     const product = useSelector(state => state.products[productId])
-    const userRoutineIds = useSelector(state => state.session.user.routines)
-    const alreadyInRoutine = userRoutineIds.find(id => id === product.id)
+    const userRoutineIds = useSelector(state => state.session.user?.routines)
+
+    const renderAddRoutine = () => {
+        const alreadyInRoutine = userRoutineIds.find(id => id === product.id)
+        return alreadyInRoutine
+    }
+
 
     const addProductToRoutine = (e) => {
         e.stopPropagation()
@@ -22,9 +27,10 @@ function ProductDetails({ sessionUser }) {
                 <p>{`${product.ingredients}`}</p>
             </div>
             <div>
-                {!alreadyInRoutine &&
-                    <button onClick={addProductToRoutine}> Add to Routine</button>
+                {sessionUser && renderAddRoutine &&
+                        <button onClick={addProductToRoutine}> Add to Routine</button>
                 }
+
             </div>
         </>
 
