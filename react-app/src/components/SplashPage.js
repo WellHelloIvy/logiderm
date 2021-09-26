@@ -4,7 +4,8 @@ import Footer from './Footer';
 function SplashPage() {
     return (
         <>
-            <div id='splash-container'>
+            <div  id='splash-container'>
+                <img id='logo' src='https://i.imgur.com/m66mLpK.png' />
                 <div className='gif-container'>
                     <img id='banner-gif' src='https://media4.giphy.com/media/Hd3EXEZmacCoYtwVZR/giphy.gif?cid=ecf05e47591sypnoq8g6kmbz4q04e44gtzcm6s3mluu0qurl&rid=giphy.gif&ct=g' />
                 </div>
@@ -15,7 +16,7 @@ function SplashPage() {
                 <div className='prof-div'>
                     <a href='programmatic-app.herokuapp.com'><img id='programmatic' src='https://i.imgur.com/NNFk4Us.png' /></a>
                     <div>
-                        <a href='https://www.linkedin.com/in/ivy-huynh-43718821b/'><img className='prof-link linkedin' src='https://i.imgur.com/8jn6Vm2.png' /></a>
+                        <a href='https://www.linkedin.com/in/ivy-huynh-43718821b/'><img className='prof-link' id='linkedin' src='https://i.imgur.com/8jn6Vm2.png' /></a>
                         <a href='https://github.com/WellHelloIvy'><img className='prof-link github' src='https://i.imgur.com/4LBqWMQ.png' /></a>
                     </div>
 

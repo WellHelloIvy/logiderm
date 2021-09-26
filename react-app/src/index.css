@@ -70,7 +70,7 @@ form input {
 
 .body{
     position: absolute;
-    top: 50px;
+    top: 30px;
     width: 100vw;
     padding: 0 30%;
     font-family: 'Raleway', sans-serif;
@@ -138,6 +138,16 @@ img {
 
 /* Splash */
 
+#logo {
+    position: absolute;
+    left: 6%;
+    top: 7%;
+    width: 12vw;
+    z-index: 2;
+    padding: 8px;
+    border: 1px solid white;
+}
+
 #splash-container{
     display:flex;
     flex-direction: column;
@@ -147,6 +157,7 @@ img {
     margin: 0px;
     position: absolute;
     left: 0px;
+    top: 0px;
     width: 100vw;
     height: 60vh;
     overflow-x: hidden;
@@ -167,13 +178,18 @@ img {
 } */
 
 .filler-div{
-    gap: 30%;
+    gap: 20%;
     margin: 0 -20%;
     font-size: 1.5em;
 }
 
 .prof-div {
     margin: 0 -20%;
+}
+
+.inner-prof-div {
+    display: flex;
+    flex-direction: row;
 }
 
 .prof-link {
@@ -185,8 +201,8 @@ img {
     width: 5vw;
 }
 
-.linkedin {
-    align-self: flex-start;
+#linkedin {
+    margin-top: 20%;
 }
 
 /* profile */
