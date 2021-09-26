@@ -17,7 +17,7 @@ function SplashPage() {
                     <a href='programmatic-app.herokuapp.com'><img id='programmatic' src='https://i.imgur.com/NNFk4Us.png' /></a>
                     <div>
                         <a href='https://www.linkedin.com/in/ivy-huynh-43718821b/'><img className='prof-link' id='linkedin' src='https://i.imgur.com/8jn6Vm2.png' /></a>
-                        <a href='https://github.com/WellHelloIvy'><img className='prof-link github' src='https://i.imgur.com/4LBqWMQ.png' /></a>
+                        <a href='https://github.com/WellHelloIvy'><img className='prof-link github' src='https://i.imgur.com/Sb5LByD.png' /></a>
                     </div>
 
                 </div>
