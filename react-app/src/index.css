@@ -137,25 +137,49 @@ img {
 }
 
 /* Splash */
-/*
-.gif-container{
-    position: relative;
-    overflow: hidden;
-} */
+
+#splash-container{
+    display:flex;
+    flex-direction: column;
+}
 #banner-gif{
     padding: 0px;
     margin: 0px;
     position: absolute;
     left: 0px;
     width: 100vw;
+    height: 60vh;
     overflow-x: hidden;
     /* width: calc(100% + 100%);
     margin-left: -50%; */
 }
 
+#splash-container > div {
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* .gif-container{
+    height: 70vh;
+}
+
+.filler-div{
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.prof-div {
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+} */
+
 .prof-link {
     width: 30vw;
-    height: 80vh;
+    height: 40vh;
 }
 
 #profile-img {
