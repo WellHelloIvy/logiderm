@@ -9,6 +9,7 @@ import { getLabels } from './store/labels';
 import Category from './components/Category';
 import { getProducts } from './store/products';
 import ProductDetails from './components/ProductsDetails';
+import SplashPage from './components/SplashPage';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
             <div className='body'>
                 <Switch>
                     <Route exact path = '/' >
-                        <h1>Home Page</h1>
+                        <SplashPage />
                     </Route>
                     <Route path='/search'>
                         <h1>Search Results</h1>
