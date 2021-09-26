@@ -14,9 +14,11 @@ const SearchResults = () => {
     return (
         <>
             <h2>Products that match your search:</h2>
-            {productResults.map(product =>
-                <Link key={product.id} to={`/products/${product.id}`}>{product.name}</Link>
-            )}
+            <div className='results'>
+                {productResults.map(product =>
+                    <Link key={product.id} to={`/products/${product.id}`}>{product.name}</Link>
+                )}
+            </div>
         </>
     )
 }
