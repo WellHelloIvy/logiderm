@@ -8,10 +8,8 @@ const Products = ({ categoryId }) => {
     return (
         <div>
             {products.map(product =>
-                <div key={product.id}>
-                    <Link to={`/products/${product.id}`}>
-                        {`${product.brand} ${product.name}`}
-                    </Link>
+                <div key={product.id} className='categories'>
+                    <Link to={`/products/${product.id}`}>{`${product.brand} ${product.name}`}</Link>
                 </div>
             )}
         </div>

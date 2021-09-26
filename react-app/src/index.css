@@ -82,7 +82,7 @@ form input {
     z-index: 2;
 }
 
-.dropdown * {
+.dropdown a {
     text-decoration: none;
     font-size: 1.5em;
     color: rgba(0, 0, 0, 0.8);
@@ -91,6 +91,11 @@ form input {
 
 .dropdown i {
     align-self: flex-end;
+}
+
+.categories a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 #modal-content {
@@ -107,22 +112,44 @@ form input {
     list-style-type: none;
 }
 
+img {
+    padding: 4px;
+    object-fit: cover;
+}
+
 #profile-img {
     padding: 4px;
     border: 1px solid black;
     object-fit: cover;
+
     width: 10vw;
     height: 20vh;
 }
 
-/* #profile-header {
-    position: relative;
-    transform: rotate(-90deg);
-    transform-origin: top left;
-    margin-left: 4rem;
-} */
+.user-concerns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.routine-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.routine-div  a {
+text-decoration: none;
+color: rgba(0, 0, 0, 0.8);
+}
+
+.routine-img {
+    width: 40vw;
+    height: 40vh;
+}
 
 .isClicked {
     box-shadow: 0px 0px 2px 1px black;
-    background-color: blueviolet;
+    background-color: black;
+    color: white;
 }

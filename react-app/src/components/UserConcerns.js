@@ -5,12 +5,14 @@ function UserConcerns({ sessionUser }) {
     const allConcerns = useSelector(state => state.labels.concerns)
 
     return (
-        <div>
+        <>
             <h2>Your Concerns</h2>
-            {concernIdArr.map((id) =>
-            <p key={allConcerns[id]}>{allConcerns[id].split('_').join(' ')}</p>)
-            }
-        </div>
+            <div className='user-concerns'>
+                {concernIdArr.map((id) =>
+                    <p key={allConcerns[id]}>{allConcerns[id].split('_').join(' ')}</p>)
+                }
+            </div>
+        </>
     )
 }
 
