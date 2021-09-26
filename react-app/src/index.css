@@ -93,7 +93,12 @@ form input {
     align-self: flex-end;
 }
 
-.categories a {
+.results {
+    display: flex;
+    flex-direction: column;
+}
+
+.results a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.8);
 }
