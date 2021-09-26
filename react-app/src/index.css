@@ -155,33 +155,41 @@ img {
 }
 
 #splash-container > div {
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 /* .gif-container{
     height: 70vh;
-}
+} */
 
 .filler-div{
-    height: 50vh;
-    display: flex;
-    flex-direction: row;
+    gap: 30%;
+    margin: 0 -20%;
+    font-size: 1.5em;
 }
 
 .prof-div {
-    height: 60vh;
-    display: flex;
-    flex-direction: row;
-} */
+    margin: 0 -20%;
+}
 
 .prof-link {
-    width: 30vw;
+    width: 20vw;
     height: 40vh;
 }
 
+#programmatic {
+    width: 5vw;
+}
+
+.linkedin {
+    align-self: flex-start;
+}
+
+/* profile */
 #profile-img {
     padding: 4px;
     border: 1px solid black;
