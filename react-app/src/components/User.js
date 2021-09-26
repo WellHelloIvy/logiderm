@@ -26,15 +26,17 @@ function User({ sessionUser }) {
 
     return (sessionUser &&
         <>
-            <div>
-                <h1>{`${sessionUser.firstName}'s profile`}</h1>
-                <img alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
+            <div className='profile-container'>
+                <div>
+                    <h1 id='profile-header'>{`${sessionUser.firstName}'s profile`}</h1>
+                    <img id='profile-img' alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
+                </div>
+                <ul>
+                    <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
+                    <li>{sessionUser.email}</li>
+                </ul>
             </div>
-            <ul>
-                <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
-                <li>{sessionUser.email}</li>
-                <li>{sessionUser.concerns}</li>
-            </ul>
+
             <div>
                 <UserConcerns sessionUser={sessionUser} />
                 <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />

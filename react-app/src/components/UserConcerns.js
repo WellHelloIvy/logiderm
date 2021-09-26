@@ -7,7 +7,9 @@ function UserConcerns({ sessionUser }) {
     return (
         <div>
             <h2>Your Concerns</h2>
-            {concernIdArr.map((id) => <p key={allConcerns[id]}>{allConcerns[id]}</p>)}
+            {concernIdArr.map((id) =>
+            <p key={allConcerns[id]}>{allConcerns[id].split('_').join(' ')}</p>)
+            }
         </div>
     )
 }

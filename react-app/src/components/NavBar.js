@@ -21,12 +21,13 @@ const NavBar = ({ sessionUser, authenticated }) => {
   }, [searchQuery]);
 
   const handleSearchClick = () => {
+    setRenderCategoriesDropdown(false)
     if (searchQuery.length) {
       setRenderSearchDropdown(true)
     }
   }
 
-  const submitHandler = (e) => {
+  const searchSubmitHandler = (e) => {
     e.preventDefault();
 
     if (!searchQuery.length) return;
@@ -44,24 +45,31 @@ const NavBar = ({ sessionUser, authenticated }) => {
   const categoryEntries = Object.entries(categoriesArr);
 
 
-  const handleMenuClick = () => {
+  const handleCategoriesClick = () => {
+    setRenderSearchDropdown(false)
     setRenderCategoriesDropdown(true)
   }
+
+  const handleNavClick = () => {
+    setRenderSearchDropdown(false)
+    setRenderCategoriesDropdown(false)
+  }
+
   return (
     <nav>
       <div>
-        <NavLink to='/' exact={true} activeClassName='active'>
+        <NavLink onClick={handleNavClick} to='/' exact={true} activeClassName='active'>
           Home
         </NavLink>
       </div>
       <div>
-        <button onClick={handleMenuClick}>Categories</button>
+        <button onClick={handleCategoriesClick}>Categories</button>
         {renderCategoriesDropdown &&
-          <CategoriesDropdown categoryEntries={categoryEntries} setRenderCategoriesDropdown={setRenderCategoriesDropdown} />
+          <CategoriesDropdown categoryEntries={categoryEntries} setRenderCategoriesDropdown={setRenderCategoriesDropdown}  />
         }
       </div>
       <div onClick={e => e.stopPropagation()}>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={searchSubmitHandler}>
           <input placeholder='Search' onClick={handleSearchClick} value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
           {renderSearchDropdown &&
             <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} setRenderSearchDropdown={setRenderSearchDropdown} />
@@ -70,18 +78,18 @@ const NavBar = ({ sessionUser, authenticated }) => {
       </div>
       {!authenticated ?
         <>
-          <LoginFormModal />
-          <SignUpFormModal />
+          <LoginFormModal onClick={handleNavClick} />
+          <SignUpFormModal onClick={handleNavClick} />
         </>
         :
         <>
           <span>{`Welcome, ${sessionUser?.firstName}`}</span>
           <div>
-            <NavLink to='/profile' activeClassName='active'>
+            <NavLink onClick={handleNavClick} to='/profile' activeClassName='active'>
               Profile
             </NavLink>
           </div>
-          <LogoutButton />
+          <LogoutButton onClick={handleNavClick} />
         </>
       }
     </nav>
