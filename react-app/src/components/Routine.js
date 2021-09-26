@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import RoutineModal from "./RoutineModal";
 
 function UserRoutine({ sessionUser }) {
@@ -8,10 +9,11 @@ function UserRoutine({ sessionUser }) {
     return (
         <div>
             <h3>Your Routine</h3>
-            <div>
+            {/* <img className='routine-img' src='https://i.imgur.com/RQMw5FN.png'></img> */}
+            <div className='routine-div'>
                 {routineIdArr.map((id) =>
                     <div key={`${allProducts[id].id}`}>
-                        <p>{`${allProducts[id].brand} ${allProducts[id].name}`}</p>
+                        <Link to={`/products/${allProducts[id].id}`}>{`${allProducts[id].brand} ${allProducts[id].name}`}</Link>
                         <p></p>
                     </div>
                 )}

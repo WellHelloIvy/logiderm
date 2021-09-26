@@ -30,10 +30,8 @@ function ProductDetails({ sessionUser }) {
                 {sessionUser && renderAddRoutine &&
                         <button onClick={addProductToRoutine}> Add to Routine</button>
                 }
-
             </div>
         </>
-
     )
 }
 
