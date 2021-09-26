@@ -23,6 +23,15 @@ nav {
     z-index: 2;
 }
 
+button {
+    background: none;
+    border: 1px solid black;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: .7em;
+    font-weight: 900;
+}
+
 nav > div > a {
     text-decoration: none;
     color: black;
@@ -42,7 +51,7 @@ nav button {
     position: absolute;
     top: 50px;
     width: 100vw;
-    padding: 0 25%;
+    padding: 0 30%;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     font-size: 1.1em;
@@ -55,7 +64,7 @@ nav button {
     left: 0px;
     width: 100vw;
     height: 100vh;
-    padding: 15% 25%;
+    padding: 10% 30% 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -65,10 +74,15 @@ nav button {
     z-index: 2;
 }
 
-.dropdown a {
+.dropdown * {
     text-decoration: none;
     font-size: 1.5em;
     color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+}
+
+.dropdown i {
+    align-self: flex-end;
 }
 
 #modal-content {
