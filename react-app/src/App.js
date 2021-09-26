@@ -9,6 +9,7 @@ import { getLabels } from './store/labels';
 import Category from './components/Category';
 import { getProducts } from './store/products';
 import ProductDetails from './components/ProductsDetails';
+import SearchResults from './components/SearchResults';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
                         <h1>Home Page</h1>
                     </Route>
                     <Route path='/search'>
-                        <h1>Search Results</h1>
+                        <SearchResults />
                     </Route>
                     <Route path='/categories/:categoryId'>
                         <Category />
