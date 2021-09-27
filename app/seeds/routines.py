@@ -21,6 +21,6 @@ def seed_routines():
     db.session.commit()
 
 
-def undo_seed_users_joins_products():
+def undo_seed_routines():
     db.session.execute('TRUNCATE routines RESTART IDENTITY CASCADE;')
     db.session.commit()

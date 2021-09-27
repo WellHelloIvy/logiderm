@@ -33,7 +33,7 @@ class Product(db.Model):
 
     concerns = db.relationship("Concern", secondary = "products_joins_concerns")
 
-    routines = db.relationship("Routine", back_populates= "products")
+    routines = db.relationship("Routine")
 
     def to_dict(self):
         attributes = [attribute.id for attribute in self.attributes]

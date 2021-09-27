@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_login import login_required
 from app.models import db, User
-from app.models.user import users_joins_concerns, users_joins_products
+from app.models.user import users_joins_concerns
 
 user_routes = Blueprint('users', __name__)
 

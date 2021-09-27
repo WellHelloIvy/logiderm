@@ -43,7 +43,7 @@ class User(db.Model, UserMixin):
 
     concerns = db.relationship("Concern", secondary = "users_joins_concerns")
 
-    routines = db.relationship("Routine", back_populates= "users", cascade="all, delete-orphan")
+    routines = db.relationship("Routine", cascade="all, delete-orphan")
 
     def to_dict(self):
         concerns = [concern.id for concern in self.concerns]

@@ -4,7 +4,7 @@ fake = Faker()
 
 def seed_users():
     demo = User(
-        first_name='Demo', last_name='User', email='demo@gmail.com', password='password', img_url='https://images.pexels.com/photos/1407167/pexels-photo-1407167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+        first_name='Demo', last_name='User', email='demo@gmail.com', password='password', img_url='https://i.imgur.com/U7CabUY.png')
     kristian = User(
         first_name='Kristian', last_name='Martinez', email='kmart@gmail.com', password='password', img_url='https://images.pexels.com/photos/1044054/pexels-photo-1044054.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
@@ -18,7 +18,7 @@ def seed_users():
 
     for i in range(10):
         user= User(
-            first_name=f'{fake.first_name_nonbinary()}',last_name=f'{fake.last_name_nonbinary()}', email=f'{fake.ascii_free_email()}', password=f'!{fake.password(length=9, special_chars=False, upper_case=True, lower_case=True, digits=True)}'
+            first_name=f'{fake.first_name_nonbinary()}',last_name=f'{fake.last_name_nonbinary()}', email=f'{fake.ascii_free_email()}', password=f'!{fake.password(length=9, special_chars=False, upper_case=True, lower_case=True, digits=True)}', img_url='https://i.imgur.com/U7CabUY.png'
         )
         db.session.add(user)
 
