@@ -144,10 +144,19 @@ img {
     padding: 8px;
     border: 1px solid white;
 }
+#scribble {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    width: 100vh;
+    object-fit: cover;
+}
 
 #splash-container{
     display:flex;
     flex-direction: column;
+    justify-content: end;
 }
 #banner-gif{
     padding: 0px;
@@ -156,14 +165,14 @@ img {
     left: 0px;
     top: 0px;
     width: 100vw;
-    height: 60vh;
+    height: 65vh;
     overflow-x: hidden;
     /* width: calc(100% + 100%);
     margin-left: -50%; */
 }
 
 #splash-container > div {
-    height: 70vh;
+    height: 65vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -175,9 +184,13 @@ img {
 } */
 
 .filler-div{
-    gap: 20%;
+    gap: 50%;
     margin: 0 -20%;
     font-size: 1.5em;
+}
+
+.empty-div {
+    width: 50%;
 }
 
 .prof-div {
