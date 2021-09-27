@@ -8,7 +8,7 @@ import { authenticate } from './store/session';
 import { getLabels } from './store/labels';
 import Category from './components/Category';
 import { getProducts } from './store/products';
-import ProductDetails from './components/ProductsDetails';
+import ProductPage from './components/ProductPage';
 import SplashPage from './components/SplashPage';
 import SearchResults from './components/SearchResults';
 
@@ -47,7 +47,7 @@ function App() {
                         <Category />
                     </Route>
                     <Route path='/products/:productId'>
-                        <ProductDetails sessionUser={sessionUser} />
+                        <ProductPage sessionUser={sessionUser} />
                     </Route>
                     <ProtectedRoute path='/profile' >
                         <User sessionUser={sessionUser} />

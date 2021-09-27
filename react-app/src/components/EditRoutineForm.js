@@ -1,12 +1,18 @@
 import React, {useState} from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import DeleteFromRoutineModal from "./DeleteFromRoutineModal";
+import { addToRoutine, deleteFromRoutine, updateRoutine } from '../store/session'
+import ProductDetails from "./ProductsDetails";
 
-const EditRoutineForm = ({ sessionUser}) => {
+const EditRoutineForm = ({ sessionUser, productId}) => {
     const [productToDeleteId, setProductToDeleteId ] = useState("")
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const routineIdArr = sessionUser.routines;
     const allProducts = useSelector(state => state.products)
+    const dispatch = useDispatch()
+
+    const routineArray = Object.values(sessionUser?.routines)
+
 
     const renderDeleteModal = (e) => {
         e.preventDefault()
@@ -15,13 +21,69 @@ const EditRoutineForm = ({ sessionUser}) => {
         setShowDeleteModal(true);
     }
 
+    const isInRoutine = (routine) => {
+        if (routine) {
+            return routine.time;
+        }   else {
+            return 0;
+        }
+    }
+
+    const addToAmRoutine = (e) => {
+        e.stopPropagation()
+        const userId = sessionUser.id;
+        const time = 1;
+        // const what = e.target.value;
+        // console.log(what)
+
+        switch (isInRoutine()){
+            case 0:
+                return dispatch(addToRoutine(productId, userId, time))
+            // case 1:
+            //     return dispatch(deleteFromRoutine(routine.id))
+            // default:
+            //     return dispatch(updateRoutine(routine.id, time))
+        }
+
+    }
+
+    // const addToPmRoutine = (e) => {
+    //     e.stopPropagation()
+    //     const userId = sessionUser.id;
+    //     const time = 2;
+
+    //     switch (isInRoutine()){
+    //         case 0:
+    //             return dispatch(addToRoutine(productId, userId, time))
+    //         case 2:
+    //             return dispatch(deleteFromRoutine(routine.id))
+    //         default:
+    //             return dispatch(updateRoutine(routine.id, time))
+    //     }
+    // }
+
+    // const addToBothRoutines = (e) => {
+    //     e.stopPropagation()
+    //     const userId = sessionUser.id;
+    //     const time = 3;
+
+    //     switch (isInRoutine()){
+    //         case 0:
+    //             return dispatch(addToRoutine(productId, userId, time))
+    //         case 3:
+    //             return dispatch(deleteFromRoutine(routine.id))
+    //         default:
+    //             return dispatch(updateRoutine(routine.id, time))
+    //     }
+    // }
+
     return(
         <>
-            {routineIdArr.map((id) =>
-                <div key={`${allProducts[id].id}`}>
-                    <p>{`${allProducts[id].brand} ${allProducts[id].name}`}</p>
-                    <button id={allProducts[id].id} onClick={renderDeleteModal}>Delete</button>
-                    <DeleteFromRoutineModal productId={productToDeleteId} setShowModal={setShowDeleteModal} showModal={showDeleteModal} sessionUser={sessionUser}/>
+            {routineArray.map((routine) =>
+                <div id='edit-routine-modal' key={`${allProducts[routine.productId].id}`}>
+                    <p>{allProducts[routine.productId].brand}</p>
+                    <p>{allProducts[routine.productId].name}</p>
+                    <ProductDetails sessionUser={sessionUser} productId={allProducts[routine.productId].id}/>
                 </div>
             )}
         </>
