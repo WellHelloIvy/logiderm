@@ -1,10 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { addToRoutine, deleteFromRoutine, updateRoutine } from '../store/session'
 
 function ProductDetails({ sessionUser, productId}) {
     const dispatch = useDispatch()
-    const product = useSelector(state => state.products[productId])
     const routineArray = Object.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
 
@@ -62,20 +60,11 @@ function ProductDetails({ sessionUser, productId}) {
         }
     }
 
-    return (
+    return (sessionUser &&
         <>
-            <div>
-                {/* <p>{`${product.brand} ${product.name}`}</p> */}
-            </div>
-            <div>
-                {sessionUser &&
-                <>
-                    <button className={`${isInRoutine() === 1 ? 'isClicked' : 'no'}`} onClick={addToAmRoutine}>AM</button>
-                    <button className={`${isInRoutine() === 2 ? 'isClicked' : 'no'}`} onClick={addToPmRoutine}>PM</button>
-                    <button className={`${isInRoutine() === 3 ? 'isClicked' : 'no'}`} onClick={addToBothRoutines}>AM + PM</button>
-                </>
-                }
-            </div>
+            <button className={`${isInRoutine() === 1 ? 'isClicked' : 'no'}`} onClick={addToAmRoutine}>AM</button>
+            <button className={`${isInRoutine() === 2 ? 'isClicked' : 'no'}`} onClick={addToPmRoutine}>PM</button>
+            <button className={`${isInRoutine() === 3 ? 'isClicked' : 'no'}`} onClick={addToBothRoutines}>AM + PM</button>
         </>
     )
 }
