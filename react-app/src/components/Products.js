@@ -12,6 +12,11 @@ const Products = ({ categoryId }) => {
                     <Link to={`/products/${product.id}`}>{`${product.brand} ${product.name}`}</Link>
                 </div>
             )}
+            <img src='https://i.imgur.com/bUgWqOl.png'/>
+            <img src='https://i.imgur.com/az9wy8s.png'/>
+            <img src='https://i.imgur.com/X60imMo.png'/>
+            <img src='https://i.imgur.com/e4z4ku7.png'/>
+            <img src='https://i.imgur.com/nYq8YzU.png'/>
         </div>
     )
 }

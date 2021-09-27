@@ -25,12 +25,15 @@ class Product(db.Model):
     brand = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Integer)
     ingredients = db.Column(db.String(5000), nullable=False)
+    img = db.Column(db.String(100))
 
     categories = db.relationship("Category", back_populates= "products")
 
     attributes = db.relationship("Attribute", secondary = "products_joins_attributes")
 
     concerns = db.relationship("Concern", secondary = "products_joins_concerns")
+
+    routines = db.relationship("Routine", back_populates= "products")
 
     def to_dict(self):
         attributes = [attribute.id for attribute in self.attributes]
@@ -42,6 +45,7 @@ class Product(db.Model):
             'brand': self.brand,
             'price': self.price,
             'ingredients': self.ingredients,
+            'img': self.img,
             'attributes': attributes,
             'concerns': concerns
     }
