@@ -161,13 +161,25 @@ export const addToRoutine = (productId, userId, time) => async (dispatch) => {
         const data = await response.json();
         dispatch(setUser(data))
         return null;
-    } else if (response.status < 500) {
+    }
+}
+
+export const updateRoutine = (routineId, time) => async (dispatch) => {
+    const response = await fetch(`/api/routines/${routineId}`,{
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            routine_id: routineId,
+            time
+        })
+    });
+
+    if(response.ok) {
         const data = await response.json();
-        if (data.errors) {
-            return data.errors;
-        }
-    } else {
-        return ['An error occurred. Please try again.']
+        dispatch(setUser(data))
+        return null
     }
 }
 

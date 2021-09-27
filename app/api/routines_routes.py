@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import db, User, Routine
+from app.models import db, User, Routine, routine
 
 routines_routes = Blueprint('routines', __name__)
 
@@ -19,6 +19,16 @@ def add_to_routine():
     user = User.query.get(user_id)
     return user.to_dict()
 
+@routines_routes.route('/<int:routine_id>', methods=['PUT'])
+@login_required
+def update_routine(routine_id):
+    data = request.get_json()
+    routine = Routine.query.get(routine_id)
+    user_id = routine.user_id
+    routine.time = data['time']
+    db.session.commit()
+    user = User.query.get(user_id)
+    return user.to_dict()
 
 @routines_routes.route('/<int:routine_id>', methods=['DELETE'])
 @login_required
