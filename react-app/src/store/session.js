@@ -97,15 +97,15 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
     }
 }
 
-export const demo = (userId) => async(dispatch) => {
+export const demo = (userId) => async (dispatch) => {
     const response = await fetch(`/api/auth/demo/${userId}`, {
         headers: {
             'Content-Type': 'application/json'
         }
     })
-    if(response.ok) {
+    if (response.ok) {
         const data = await response.json();
-        if(data.errors){
+        if (data.errors) {
             return;
         }
         dispatch(setUser(data))
@@ -142,21 +142,44 @@ export const deleteConcern = (userId, concernId) => async (dispatch) => {
     }
 }
 
-export const addToRoutine = (userId, productId) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/products/${productId}`, {
+export const addToRoutine = (productId, userId, time) => async (dispatch) => {
+
+    const response = await fetch(`/api/routines/`, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            product_id: productId,
+            user_id: userId,
+            time,
+        }),
+    });
+
+    if (response.ok) {
+
+        const data = await response.json();
+        dispatch(setUser(data))
+        return null;
+    }
+}
+
+export const updateRoutine = (routineId, time) => async (dispatch) => {
+    const response = await fetch(`/api/routines/${routineId}`,{
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            user_id: userId,
-            product_id: productId
+            routine_id: routineId,
+            time
         })
     });
-    if (response.ok) {
+
+    if(response.ok) {
         const data = await response.json();
         dispatch(setUser(data))
-        return null;
+        return null
     }
 }
 

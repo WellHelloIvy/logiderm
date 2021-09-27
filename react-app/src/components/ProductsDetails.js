@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { addToRoutine, deleteFromRoutine } from '../store/session'
+import { addToRoutine, deleteFromRoutine, updateRoutine } from '../store/session'
 
 function ProductDetails({ sessionUser }) {
     const dispatch = useDispatch()
     let { productId } = useParams()
     const product = useSelector(state => state.products[productId])
     // const userRoutineIds = useSelector(state => state.session.user?.routines)
-    const routineArray = Object.values(sessionUser.routines)
+    const routineArray = Object.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
 
 
@@ -28,13 +28,14 @@ function ProductDetails({ sessionUser }) {
         e.stopPropagation()
         const userId = sessionUser.id;
         const time = 1;
+
         switch (isInRoutine()){
             case 0:
-                return dispatch(addToRoutine(userId, productId, time))
+                return dispatch(addToRoutine(productId, userId, time))
             case 1:
                 return dispatch(deleteFromRoutine(routine.id))
             default:
-                // return dispatch(updateRoutine(userId, productId, time))
+                return dispatch(updateRoutine(routine.id, time))
         }
 
     }
@@ -44,11 +45,14 @@ function ProductDetails({ sessionUser }) {
         const userId = sessionUser.id;
         const time = 2;
 
-        // if (isInRoutine(e.target.value) > 0) {
-        //     dispatch(updateRoutine(userId, productId, time))
-        // } else {
-           dispatch(addToRoutine(userId, productId, time))
-        // }
+        switch (isInRoutine()){
+            case 0:
+                return dispatch(addToRoutine(productId, userId, time))
+            case 2:
+                return dispatch(deleteFromRoutine(routine.id))
+            default:
+                return dispatch(updateRoutine(routine.id, time))
+        }
     }
 
     const addToBothRoutines = (e) => {
@@ -56,11 +60,14 @@ function ProductDetails({ sessionUser }) {
         const userId = sessionUser.id;
         const time = 3;
 
-        // if (isInRoutine(e.target.value) > 0) {
-        //     dispatch(updateRoutine(userId, productId, time))
-        // } else {
-           dispatch(addToRoutine(userId, productId, time))
-        // }
+        switch (isInRoutine()){
+            case 0:
+                return dispatch(addToRoutine(productId, userId, time))
+            case 3:
+                return dispatch(deleteFromRoutine(routine.id))
+            default:
+                return dispatch(updateRoutine(routine.id, time))
+        }
     }
 
     return (

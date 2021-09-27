@@ -4,7 +4,6 @@ import RoutineModal from "./RoutineModal";
 
 function UserRoutine({ sessionUser }) {
     const routinesArray = Object.values(sessionUser.routines)
-
     const allProducts = useSelector(state => state.products)
 
     return (
