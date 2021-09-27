@@ -10,7 +10,7 @@ function ProductDetails({ sessionUser }) {
 
     const renderAddRoutine = () => {
         const alreadyInRoutine = userRoutineIds.find(id => id === product.id)
-        return alreadyInRoutine
+        return !alreadyInRoutine
     }
 
 
@@ -27,7 +27,7 @@ function ProductDetails({ sessionUser }) {
                 <p>{`${product.ingredients}`}</p>
             </div>
             <div>
-                {sessionUser && renderAddRoutine &&
+                {sessionUser && renderAddRoutine() &&
                         <button onClick={addProductToRoutine}> Add to Routine</button>
                 }
             </div>
