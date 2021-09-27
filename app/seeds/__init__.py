@@ -5,7 +5,7 @@ from .products import seed_products, undo_products
 from .attributes import seed_attributes, undo_attributes
 from .categories import seed_categories, undo_categories
 from .concerns import seed_concerns, undo_concerns
-from .users_joins_products import seed_users_joins_products, undo_seed_users_joins_products
+from .routines import seed_routines, undo_seed_routines
 from .users_joins_concerns import seed_users_joins_concerns, undo_users_joins_concerns
 from .users_joins_skin_types import seed_users_joins_skin_types, undo_seed_users_joins_skin_types
 from .products_joins_attributes import seed_products_joins_attributes, undo_seed_products_joins_attributes
@@ -20,7 +20,7 @@ def seed():
     seed_users_joins_skin_types()
     seed_categories()
     seed_products()
-    seed_users_joins_products()
+    seed_routines()
     seed_attributes()
     seed_concerns()
     seed_products_joins_concerns()
@@ -33,7 +33,7 @@ def undo():
     undo_skin_types()
     undo_seed_users_joins_skin_types()
     undo_products()
-    undo_seed_users_joins_products()
+    undo_seed_routines()
     undo_categories()
     undo_attributes()
     undo_seed_products_joins_attributes()

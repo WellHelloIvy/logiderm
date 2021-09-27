@@ -1,6 +1,6 @@
 from app.models import db, Product
 import random
-from random import seed, randint
+from random import randint
 
 def seed_products():
 
@@ -12,19 +12,22 @@ def seed_products():
 
     inactive_ingredients_list = ['WATER', 'SODIUM LAUROYL SARCOSINATE', 'COCAMIDOPROPYL HYDROXYSULTAINE', 'TAURATE', 'PEG-150', 'PENTAERYTHRITYL TETRASTEARATE', 'CALCIUM GLUCONATE', 'TRIETHYL CITRATE', 'SODIUM BENZOATE', 'SODIUM HYDROXIDE', 'SODIUM LAUROYL LACTYLATE', 'CHOLESTEROL', 'TETRASODIUM EDTA', 'CAPRYLYL GLYCOL', 'TRISODIUM ETHYLENEDIAMINE DISUCCINATE', 'XANTHAN GUM', 'HECTORITE', 'PHYTOSPHINGOSINE', 'BENZOIC ACID', 'GLYCERIN', 'NIACINAMIDE', 'GLUCONOLACTONE', 'SODIUM METHYL COCOYL', 'CERAMIDE NP', 'CERAMIDE AP', 'CERAMIDE EOP', 'CARBOMER', 'CALCIUM GLUCONATE', 'TRIETHYL CITRATE', 'SODIUM BENZOATE', 'SODIUM HYDROXIDE', 'SODIUM LAUROYL LACTYLATE', 'CHOLESTEROL', 'TETRASODIUM EDTA', 'CAPRYLYL GLYCOL', 'HYDROLYZED HYALURONIC ACID', 'TRISODIUM ETHYLENEDIAMINE DISUCCINATE', 'XANTHAN GUM', 'HECTORITE', 'PHYTOSPHINGOSINE', 'BENZOIC ACID', 'DIMETHICONE/VINYL', 'DIMETHICONE', 'CROSSPOLYMER', 'CYCLOPENTASILOXANE', 'GLYCERYL STEARATE SE', 'CETYL ALCOHOL', 'DIMETHICONE', 'SACCHARIDE ISOMERATE', 'STEARIC ACID', 'PALMITIC ACID', 'GLYCINE SOJA STEROLS / SOYBEAN STEROLS', 'ALLANTOIN', 'CETEARYL ALCOHOL', 'BEHENTRIMONIUM METHOSULFATE', 'SODIUM HYDROXIDE', 'MYRISTIC ACID', 'SODIUM LAUROYL LACTYLATE', 'SODIUM BENZOATE', 'SODIUM CITRATE', 'SODIUM HYALURONATE', 'PHENOXYETHANOL', 'TOCOPHEROL', 'TRIPEPTIDE-1', 'LAURETH-9', 'CITRIC ACID', 'CAPROOYL TETRAPEPTIDE-3', 'BIOSACCHARIDE GUM-1', 'PHYTOSPHINGOSINE', 'XANTHAN GUM', 'DEXTRAN', 'ETHYLHEXYLGLYCERIN', 'BUTYLENE GLYCOL']
 
-    for i in range(60):
+    product_img = ['https://i.imgur.com/bUgWqOl.png', 'https://i.imgur.com/az9wy8s.png', 'https://i.imgur.com/X60imMo.png', 'https://i.imgur.com/e4z4ku7.png', 'https://i.imgur.com/nYq8YzU.png']
+
+    for i in range(61):
         ingredients = ['water/aqua']
         active = random.choice(active_ingredients_list)
         inactive = random.choices(inactive_ingredients_list, k=11)
         product_name = random.choice(product_names)
         brand_name = random.choice(brand_names)
+        img_url = random.choice(product_img)
 
         ingredients.append(active)
         ingredients.extend(inactive)
 
         value = randint(1,4)
         product = Product(
-            category_id=f'{value}', name=f'{product_name}', brand=f'{brand_name}', price=f'{randint(1000, 10000)}', ingredients=' '.join(ingredients)
+            category_id=f'{value}', name=f'{product_name}', brand=f'{brand_name}', price=f'{randint(1000, 10000)}', ingredients=' '.join(ingredients), img=f'{img_url}'
         )
         db.session.add(product)
 
