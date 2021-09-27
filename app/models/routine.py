@@ -9,6 +9,7 @@ class Routine(db.Model):
     time = db.Column('time', db.Integer)
 
     def to_dict(self):
+        
         return {
             'id': self.id,
             'productId': self.product_id,
