@@ -2,9 +2,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { addToRoutine, deleteFromRoutine, updateRoutine } from '../store/session'
 
-function ProductDetails({ sessionUser }) {
+function ProductDetails({ sessionUser, productId}) {
     const dispatch = useDispatch()
-    let { productId } = useParams()
     const product = useSelector(state => state.products[productId])
     const routineArray = Object.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
@@ -66,8 +65,7 @@ function ProductDetails({ sessionUser }) {
     return (
         <>
             <div>
-                <h1>{`${product.brand} ${product.name}`}</h1>
-                <p>{`${product.ingredients}`}</p>
+                {/* <p>{`${product.brand} ${product.name}`}</p> */}
             </div>
             <div>
                 {sessionUser &&

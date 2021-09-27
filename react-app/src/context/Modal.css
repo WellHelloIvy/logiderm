@@ -54,3 +54,10 @@
     font-weight: 100;
     font-size: 1.1em;
 }
+
+#edit-routine-modal {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
