@@ -10,6 +10,8 @@ function ProductPage ({ sessionUser }) {
     return(
         <>
             <img src={`${product.img}`}></img>
+            <h1>{product.brand}</h1>
+            <h2>{product.name}</h2>
             <ProductDetails sessionUser={sessionUser} productId={productId}/>
             <p>{product.ingredients}</p>
         </>

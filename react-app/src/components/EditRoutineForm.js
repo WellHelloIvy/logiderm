@@ -81,6 +81,8 @@ const EditRoutineForm = ({ sessionUser, productId}) => {
         <>
             {routineArray.map((routine) =>
                 <div id='edit-routine-modal' key={`${allProducts[routine.productId].id}`}>
+                    <p>{allProducts[routine.productId].brand}</p>
+                    <p>{allProducts[routine.productId].name}</p>
                     <ProductDetails sessionUser={sessionUser} productId={allProducts[routine.productId].id}/>
                 </div>
             )}
