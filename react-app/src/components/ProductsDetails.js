@@ -6,15 +6,8 @@ function ProductDetails({ sessionUser }) {
     const dispatch = useDispatch()
     let { productId } = useParams()
     const product = useSelector(state => state.products[productId])
-    // const userRoutineIds = useSelector(state => state.session.user?.routines)
     const routineArray = Object.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
-
-
-    // const renderAddRoutine = () => {
-    //     const alreadyInRoutine = userRoutineIds.find(id => id === product.id)
-    //     return !alreadyInRoutine
-    // }
 
     const isInRoutine = () => {
         if (routine) {
