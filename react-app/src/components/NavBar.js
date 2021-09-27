@@ -6,9 +6,12 @@ import SignUpFormModal from './SignUpFormModal';
 import LoginFormModal from './LoginFormModal';
 import CategoriesDropdown from './CategoriesDropdown';
 import Search from './Search';
+import { useDispatch } from 'react-redux';
+import { demo } from '../store/session';
 
 const NavBar = ({ sessionUser, authenticated }) => {
   const history = useHistory()
+  const dispatch = useDispatch();
 
   const [renderCategoriesDropdown, setRenderCategoriesDropdown] = useState(false);
 
@@ -55,6 +58,13 @@ const NavBar = ({ sessionUser, authenticated }) => {
     setRenderCategoriesDropdown(false)
   }
 
+  const handleDemo = () => {
+    setRenderSearchDropdown(false)
+    setRenderCategoriesDropdown(false)
+    dispatch(demo(1))
+    history.push('/')
+  }
+
   return (
     <nav>
       <div>
@@ -80,6 +90,7 @@ const NavBar = ({ sessionUser, authenticated }) => {
         <>
           <LoginFormModal onClick={handleNavClick} />
           <SignUpFormModal onClick={handleNavClick} />
+          <button onClick={handleDemo}>Demo</button>
         </>
         :
         <>
