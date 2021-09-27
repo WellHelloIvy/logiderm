@@ -1,4 +1,6 @@
 from app.models import db, User
+from faker import Faker
+fake = Faker()
 
 def seed_users():
     demo = User(
@@ -9,9 +11,16 @@ def seed_users():
     moiz = User(
         first_name='Moiz', last_name='Ahmad', email='wizkika@gmail.com', password='password', img_url='https://images.pexels.com/photos/5734194/pexels-photo-5734194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
+
     db.session.add(demo)
     db.session.add(kristian)
     db.session.add(moiz)
+
+    for i in range(10):
+        user= User(
+            first_name=f'{fake.first_name_nonbinary()}',last_name=f'{fake.last_name_nonbinary()}', email=f'{fake.ascii_free_email()}', password=f'!{fake.password(length=9, special_chars=False, upper_case=True, lower_case=True, digits=True)}'
+        )
+        db.session.add(user)
 
     db.session.commit()
 
