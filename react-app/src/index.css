@@ -41,7 +41,7 @@ button {
     border: 1px solid black;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
-    font-size: .7em;
+    font-size: .8em;
     font-weight: 900;
 }
 
@@ -117,10 +117,7 @@ form input {
     color: rgba(0, 0, 0, 0.8);
 }
 
-#modal-content {
-    display: flex;
-    flex-direction: column;
-}
+/* profile */
 
 .profile-container {
     display: flex;
@@ -143,7 +140,7 @@ img {
     left: 6%;
     top: 7%;
     width: 12vw;
-    z-index: 2;
+    z-index: 1;
     padding: 8px;
     border: 1px solid white;
 }
@@ -242,3 +239,5 @@ color: rgba(0, 0, 0, 0.8);
     background-color: black;
     color: white;
 }
+
+
