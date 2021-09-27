@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { addConcern, deleteConcern } from '../store/session';
 
-const EditConcernForm = ({ setShowModal, sessionUser }) => {
+const EditConcernForm = ({ sessionUser }) => {
     const allConcerns = Object.entries(useSelector(state => state.labels.concerns))
     const dispatch = useDispatch();
 

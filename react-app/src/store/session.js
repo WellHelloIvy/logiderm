@@ -160,8 +160,8 @@ export const addToRoutine = (userId, productId) => async (dispatch) => {
     }
 }
 
-export const deleteFromRoutine = (userId, productId) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/products/${productId}`, {
+export const deleteFromRoutine = (routineId) => async (dispatch) => {
+    const response = await fetch(`/api/routines/${routineId}`, {
         method: 'DELETE'
     });
     if (response.ok) {
