@@ -56,47 +56,48 @@ const SignUpForm = ({ setShowModal }) => {
                     <div key={ind}>{error}</div>
                 ))}
             </div>
+            <h1>Welcome</h1>
             <div>
-                <label>First Name</label>
                 <input
                     type='text'
                     name='firstName'
+                    placeholder='First Name'
                     onChange={updateFirstName}
                     value={firstName}
                 ></input>
             </div>
             <div>
-                <label>Last Name</label>
                 <input
                     type='text'
                     name='Last Name'
+                    placeholder='Last Name'
                     onChange={updateLastName}
                     value={lastName}
                 ></input>
             </div>
             <div>
-                <label>Email</label>
                 <input
                     type='text'
                     name='email'
+                    placeholder='Email'
                     onChange={updateEmail}
                     value={email}
                 ></input>
             </div>
             <div>
-                <label>Password</label>
                 <input
                     type='password'
                     name='password'
+                    placeholder='Password'
                     onChange={updatePassword}
                     value={password}
                 ></input>
             </div>
             <div>
-                <label>Repeat Password</label>
                 <input
                     type='password'
                     name='repeat_password'
+                    placeholder='Repeat Password'
                     onChange={updateRepeatPassword}
                     value={repeatPassword}
                     required={true}
