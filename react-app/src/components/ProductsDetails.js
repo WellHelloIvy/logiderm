@@ -7,7 +7,7 @@ function ProductDetails({ sessionUser }) {
     let { productId } = useParams()
     const product = useSelector(state => state.products[productId])
     // const userRoutineIds = useSelector(state => state.session.user?.routines)
-    const routineArray = Object.values(sessionUser.routines)
+    const routineArray = Object.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
 
 
@@ -30,7 +30,7 @@ function ProductDetails({ sessionUser }) {
         const time = 1;
         switch (isInRoutine()){
             case 0:
-                return dispatch(addToRoutine(userId, productId, time))
+                return dispatch(addToRoutine(productId, userId, time))
             case 1:
                 return dispatch(deleteFromRoutine(routine.id))
             default:

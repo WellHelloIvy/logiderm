@@ -97,15 +97,15 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
     }
 }
 
-export const demo = (userId) => async(dispatch) => {
+export const demo = (userId) => async (dispatch) => {
     const response = await fetch(`/api/auth/demo/${userId}`, {
         headers: {
             'Content-Type': 'application/json'
         }
     })
-    if(response.ok) {
+    if (response.ok) {
         const data = await response.json();
-        if(data.errors){
+        if (data.errors) {
             return;
         }
         dispatch(setUser(data))
@@ -142,21 +142,32 @@ export const deleteConcern = (userId, concernId) => async (dispatch) => {
     }
 }
 
-export const addToRoutine = (userId, productId) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}/products/${productId}`, {
+export const addToRoutine = (productId, userId, time) => async (dispatch) => {
+
+    const response = await fetch(`/api/routines/`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            product_id: productId,
             user_id: userId,
-            product_id: productId
-        })
+            time,
+        }),
     });
+
     if (response.ok) {
+
         const data = await response.json();
         dispatch(setUser(data))
         return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
