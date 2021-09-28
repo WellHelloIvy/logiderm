@@ -20,8 +20,6 @@ function SplashPage() {
                     <a href='http://programmatic-app.herokuapp.com'><img id='programmatic' src='https://i.imgur.com/NNFk4Us.png' /></a>
                 </div>
             </div>
-
-            <Footer />
         </>
     )
 }

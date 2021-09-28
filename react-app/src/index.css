@@ -69,7 +69,7 @@ form input {
 
 .body{
     /* position: absolute; */
-    top: 30px;
+    top: 60px;
     height: 100vw;
     padding: 0 30%;
     font-family: 'Raleway', sans-serif;
@@ -220,10 +220,6 @@ form input {
 
 .profile-container > div {
     border: 4px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     background-color: white;
 }
 
@@ -237,10 +233,33 @@ form input {
 
 .profile-div {
     grid-area: profile;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.concerns-div{
+div.concerns-div{
+    padding: 5%;
     grid-area: concerns;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 70% 30%;
+    grid-template-areas:
+    'top top'
+    'concerns buttons'
+    ;
+}
+
+.top{
+    grid-area: top;
+}
+
+ul.user-concerns {
+    grid-area: concerns;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 div.routine-container {
@@ -281,9 +300,7 @@ div.routine-container {
     padding: 4px;
     border: 1px solid black;
     object-fit: cover;
-
     width: 10vw;
-    height: 20vh;
 }
 
 .profile-container li {
