@@ -6,12 +6,12 @@ function UserConcerns({ sessionUser }) {
 
     return (
         <>
-            <h2>Your Concerns</h2>
-            <div className='user-concerns'>
+            <p>Your Concerns</p>
+            <ul className='user-concerns'>
                 {concernIdArr.map((id) =>
-                    <p key={allConcerns[id]}>{allConcerns[id].split('_').join(' ')}</p>)
+                    <li key={allConcerns[id]}>{allConcerns[id].split('_').join(' ')}</li>)
                 }
-            </div>
+            </ul>
         </>
     )
 }

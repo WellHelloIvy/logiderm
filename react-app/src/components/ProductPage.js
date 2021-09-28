@@ -16,4 +16,5 @@ function ProductPage ({ sessionUser }) {
             <p>{product.ingredients}</p>
         </>
     )
-}export default ProductPage;
+}
+export default ProductPage;

@@ -16,6 +16,9 @@ function UserRoutine({ sessionUser }) {
     return (
 
         <>
+            <div className='test'>
+               <p>Your Routines</p>
+            </div>
             <div className='routine-div am'>
                 <p>AM</p>
                 {amRoutineArray.map(routine =>
