@@ -20,7 +20,7 @@
 }
 
 #modal-content {
-    width: 50%;
+    min-width: fit-content;
     position: absolute;
     background-color: white;
     padding: 2% 4% 2%;
@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     height: fit-content;
+    max-height: 100%;
 
 }
 
@@ -47,7 +48,6 @@
 
 #modal-content h1 {
     margin-top: -10%;
-
 }
 
 #modal-content > input {
@@ -57,18 +57,16 @@
 
 }
 
-/* #edit-routine-modal {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-} */
-
-
 .edit-routine-modal {
+    width: fit-content;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 30% 5% 30% 5% 30%;
     grid-template-areas:
-    "AM PM BOTH"
+    "AM"
+    "."
+    "PM"
+    "."
+    "BOTH"
     ;
     height: 100%;
     text-align: center;
@@ -78,14 +76,50 @@
 #edit-am {
     grid-area: AM;
     align-self: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #edit-pm {
     grid-area: PM;
     align-self: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #edit-both {
     grid-area: BOTH;
     align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-routine-div {
+    margin: 0px 2%;
+}
+
+.edit-concern-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.edit-concern-container button {
+    min-width: fit-content;
+    max-width: 100%;
+    margin: 2% 0%;
+    padding: 2%;
+}
+
+.edit-concern-container button:hover {
+    box-shadow:  0 0 .8em black;
+    border-radius: .2em;
+}
+
+b {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    font-weight: 900;
+    margin: none;
 }
