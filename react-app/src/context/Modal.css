@@ -20,7 +20,7 @@
 }
 
 #modal-content {
-    width: fit-content;
+    width: 50%;
     position: absolute;
     background-color: white;
     padding: 2% 4% 2%;
@@ -29,6 +29,7 @@
     flex-direction: column;
     /* justify-content: space-evenly;
     align-items: space-evenly; */
+    height: 60%;
 
 }
 
@@ -43,21 +44,50 @@
     font-family: 'Inter', sans-serif;
     font-size: .8em;
     font-weight: 800;
+
 }
 
 #modal-content h1 {
     margin-top: -10%;
+
 }
 
 #modal-content > input {
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     font-size: 1.1em;
+
 }
 
-#edit-routine-modal {
-    height: 100%;
+/* #edit-routine-modal {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+} */
+
+
+.edit-routine-modal {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-areas:
+    "AM PM BOTH"
+    ;
+    height: 100%;
+    text-align: center;
+
+}
+
+#edit-am {
+    grid-area: AM;
+    align-self: center;
+}
+
+#edit-pm {
+    grid-area: PM;
+    align-self: center;
+}
+
+#edit-both {
+    grid-area: BOTH;
+    align-self: center;
 }

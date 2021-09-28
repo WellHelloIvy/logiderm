@@ -25,28 +25,28 @@ function User({ sessionUser }) {
     }
 
     return (sessionUser &&
-        <>
+        <div className='background-image'><img src='https://i.imgur.com/j7rqkkO.jpg'/>
             <div className='profile-container'>
-                <div>
-                    <h1 id='profile-header'>{`${sessionUser.firstName}'s profile`}</h1>
-                    <img id='profile-img' alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
+                <div className='profile-div'>
+                    <div>
+                        <h1 id='profile-header'>{`${sessionUser.firstName}'s profile`}</h1>
+                        <img id='profile-img' alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
+                    </div>
+                    <ul>
+                        <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
+                        <li>{sessionUser.email}</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
-                    <li>{sessionUser.email}</li>
-                </ul>
-            </div>
 
-            <div>
-                <UserConcerns sessionUser={sessionUser} />
-                <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
+                <div className='concerns-div'>
+                    <UserConcerns sessionUser={sessionUser} />
+                    <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
+                </div>
+                <div className='routine-container'>
+                    <Routine sessionUser={sessionUser} />
+                </div>
             </div>
-            <div>
-                <Routine sessionUser={sessionUser} />
-            </div>
-
-        </>
-
+        </div>
     );
 }
 export default User;

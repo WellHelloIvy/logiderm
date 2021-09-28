@@ -12,9 +12,7 @@ const RoutineModal = ({ sessionUser }) => {
                 <Modal onClose={() => setShowModal(false)}>
                     <EditRoutineForm setShowModal={setShowModal} sessionUser={sessionUser} />
                 </Modal>
-            )
-
-            }
+            )}
         </>
     )
 }
