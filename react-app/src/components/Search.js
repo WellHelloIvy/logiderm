@@ -18,7 +18,7 @@ const Search = ({ searchQuery, setSearchQuery, setRenderSearchDropdown}) => {
             {searchResults.length ?
                 searchResults.map(product =>
                     <Link key={product.id} to={`/products/${product.id}`} onClick={handleClick}>
-                    {product.name}
+                    {`${product.brand} ${product.name}`}
                     </Link>
                 )
                 :

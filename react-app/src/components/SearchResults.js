@@ -16,7 +16,7 @@ const SearchResults = () => {
             <h2>Products that match your search:</h2>
             <div className='results'>
                 {productResults.map(product =>
-                    <Link key={product.id} to={`/products/${product.id}`}>{product.name}</Link>
+                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name}`}</Link>
                 )}
             </div>
         </>

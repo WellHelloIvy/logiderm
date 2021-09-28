@@ -2,8 +2,7 @@
     position: absolute;
     left: 0px;
     width: 100%;
-    height: 100%;
-
+    box-sizing: border-box;
 }
 
 html {
@@ -22,7 +21,7 @@ nav {
     height: 40px;
     width: 100vw;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -69,9 +68,9 @@ form input {
 }
 
 .body{
-    position: absolute;
-    top: 30px;
-    width: 100vw;
+    /* position: absolute; */
+    top: 60px;
+    height: 100vw;
     padding: 0 30%;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
@@ -193,23 +192,18 @@ form input {
 
 /* profile */
 .background-image > img {
+    padding: none;
+    box-sizing: border-box;
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: -1;
-    /* width: 100vw; */
-    height: 100%;
+    width: 100vw;
+    height: 100vw;
+    overflow-x: hidden;
 }
 
-
 .profile-container {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: space-between; */
-    /* gap: 20%; */
-    /* margin-bottom: 20%; */
-    /* height: 200%; */
 
     display: grid;
     grid-template-columns: auto;
@@ -226,41 +220,10 @@ form input {
 
 .profile-container > div {
     border: 4px solid black;
-    /* height: 40vh; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     background-color: white;
-
-
-}
-.profile-div {
-    grid-area: profile;
 }
 
-.concerns-div{
-    grid-area: concerns;
-}
-
-.routine-container {
-    width: 150%;
-    margin-left: -20%;
-    grid-area: routine;
-    padding: 5%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.routine-div {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between;
-    align-content: space-between; */
-}
-
-.routine-div > p {
+.profile-container p {
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
     font-size: 1.8em;
@@ -268,17 +231,82 @@ form input {
     margin: none;
 }
 
+.profile-div {
+    grid-area: profile;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.concerns-div{
+    padding: 5%;
+    grid-area: concerns;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 70% 30%;
+    grid-template-areas:
+    'top top'
+    'concerns buttons'
+    ;
+}
+
+.top{
+    grid-area: top;
+}
+
+ul.user-concerns {
+    grid-area: concerns;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.routine-container {
+    width: 150%;
+    margin-left: -20%;
+    grid-area: routine;
+    padding: 5%;
+
+
+    display: grid;
+    grid-template-columns: 45% 45% 10%;
+    grid-template-rows: 20% 80%;
+
+    grid-template-areas:
+    "header header header"
+    "morning evening button"
+    ;
+}
+
+.am {
+    grid-area: morning;
+}
+
+.pm {
+    grid-area: evening;
+}
+
+.test {
+    grid-area: header;
+}
+
+.routine-div {
+    display: flex;
+    flex-direction: column;
+}
+
 #profile-img {
     padding: 4px;
     border: 1px solid black;
     object-fit: cover;
-
     width: 10vw;
-    height: 20vh;
 }
 
 .profile-container li {
     list-style-type: none;
+    color: black;
+    font-weight: 400;
 }
 
 img {
@@ -286,12 +314,10 @@ img {
     object-fit: cover;
 }
 
-
 .routine-div a {
 text-decoration: none;
 color: rgba(0, 0, 0, 0.8);
 }
-
 
 .isClicked {
     box-shadow: 0px 0px 2px 1px black;
