@@ -16,22 +16,19 @@ function UserRoutine({ sessionUser }) {
     return (
 
         <>
-            <div>
-            <h3>Your Routine</h3>
-            <div>
-                <div className='routine-div'>
-                    {amRoutineArray.map(routine =>
-                        <Link to={`/products/${allProducts[routine.productId].id}`}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
-                    )}
-                </div>
-                <div className='routine-div'>
-                    {pmRoutineArray.map(routine =>
-                        <Link to={`/products/${allProducts[routine.productId].id}`}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
-                    )}
-                </div>
+            <div className='routine-div am'>
+                <p>AM</p>
+                {amRoutineArray.map(routine =>
+                    <Link to={`/products/${allProducts[routine.productId].id}`}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
+                )}
             </div>
-                <RoutineModal sessionUser={sessionUser} />
+            <div className='routine-div pm'>
+                <p>PM</p>
+                {pmRoutineArray.map(routine =>
+                    <Link to={`/products/${allProducts[routine.productId].id}`}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
+                )}
             </div>
+            <RoutineModal sessionUser={sessionUser} />
         </>
 
 
