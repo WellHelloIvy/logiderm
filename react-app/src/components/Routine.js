@@ -17,16 +17,16 @@ function UserRoutine({ sessionUser }) {
 
         <>
             <div className='test'>
-               <p>Your Routines</p>
+               <b>Your Routines</b>
             </div>
             <div className='routine-div am'>
-                <p>AM</p>
+                <b>AM</b>
                 {amRoutineArray.map(routine =>
                     <Link to={`/products/${allProducts[routine.productId].id}`}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
                 )}
             </div>
             <div className='routine-div pm'>
-                <p>PM</p>
+                <b>PM</b>
                 {pmRoutineArray.map(routine =>
                     <Link to={`/products/${allProducts[routine.productId].id}`}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
                 )}

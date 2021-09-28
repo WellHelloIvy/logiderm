@@ -223,7 +223,7 @@ form input {
     background-color: white;
 }
 
-.profile-container p {
+.profile-container b {
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
     font-size: 1.8em;
@@ -234,8 +234,13 @@ form input {
 .profile-div {
     grid-area: profile;
     padding: 5%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30% 70%;
+    grid-template-areas:
+    "name details"
+    "profpic"
+    ;
 }
 
 div.concerns-div{
@@ -254,12 +259,14 @@ div.concerns-div{
     grid-area: top;
 }
 
-ul.user-concerns {
+.user-concerns {
     grid-area: concerns;
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
 }
 
 div.routine-container {
@@ -294,6 +301,7 @@ div.routine-container {
 .routine-div {
     display: flex;
     flex-direction: column;
+
 }
 
 #profile-img {
@@ -301,6 +309,7 @@ div.routine-container {
     border: 1px solid black;
     object-fit: cover;
     width: 10vw;
+    grid-area: profpic;
 }
 
 .profile-container li {
@@ -315,14 +324,27 @@ img {
 }
 
 .routine-div a {
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 2% 0%;
+    padding: 2%;
+}
+
+.routine-div a:hover {
 text-decoration: none;
 color: rgba(0, 0, 0, 0.8);
+/* margin: 1% 0; */
+box-shadow:  0 0 .8em black;
+border-radius: .2em;
 }
 
 .isClicked {
     box-shadow: 0px 0px 2px 1px black;
     background-color: black;
     color: white;
+
 }
 
 

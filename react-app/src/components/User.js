@@ -29,7 +29,7 @@ function User({ sessionUser }) {
             <div className='profile-container'>
                 <div className='profile-div'>
                     <div>
-                        <p id='profile-header'>{`${sessionUser.firstName}'s profile`}</p>
+                        <b id='profile-header'>{`${sessionUser.firstName}'s profile`}</b>
                         <img id='profile-img' alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
                     </div>
                     <ul>
