@@ -42,6 +42,7 @@ button {
     text-transform: uppercase;
     font-size: .8em;
     font-weight: 900;
+    height: fit-content;
 }
 
 nav > div > a {

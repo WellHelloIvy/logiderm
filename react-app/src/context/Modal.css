@@ -27,9 +27,7 @@
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly;
-    align-items: space-evenly; */
-    height: 60%;
+    height: fit-content;
 
 }
 
