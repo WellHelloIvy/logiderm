@@ -3,7 +3,7 @@ import { addToRoutine, deleteFromRoutine, updateRoutine } from '../store/session
 
 function ProductDetails({ sessionUser, productId}) {
     const dispatch = useDispatch()
-    const routineArray = Object.values(sessionUser?.routines)
+    const routineArray = Object?.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
 
     const isInRoutine = () => {

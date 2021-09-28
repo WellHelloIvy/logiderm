@@ -14,6 +14,7 @@ const EditRoutineForm = ({ sessionUser, productId }) => {
     return (
         <div className='edit-routine-modal'>
             <div id="edit-am">
+            <b>AM</b>
                 {amRoutineArray.map((routine) =>
                     <div className='edit-routine-div' key={`${allProducts[routine.productId].id}`}>
                         <p>{allProducts[routine.productId].brand}</p>
@@ -23,6 +24,7 @@ const EditRoutineForm = ({ sessionUser, productId }) => {
                 )}
             </div >
             <div id="edit-pm">
+            <b>PM</b>
                 {pmRoutineArray.map((routine) =>
                     <div className='edit-routine-div' key={`${allProducts[routine.productId].id}`}>
                         <p>{allProducts[routine.productId].brand}</p>
@@ -31,8 +33,8 @@ const EditRoutineForm = ({ sessionUser, productId }) => {
                     </div>
                 )}
             </div>
-
             <div id="edit-both">
+            <b>AM + PM</b>
                 {inBothRoutines.map((routine) =>
                     <div className='edit-routine-div' key={`${allProducts[routine.productId].id}`}>
                         <p>{allProducts[routine.productId].brand}</p>

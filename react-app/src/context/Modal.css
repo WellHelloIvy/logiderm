@@ -20,16 +20,16 @@
 }
 
 #modal-content {
-    min-width: fit-content;
+    /* min-width: fit-content; */
     position: absolute;
     background-color: white;
     padding: 2% 4% 2%;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    height: fit-content;
-    max-height: 100%;
-
+    /* min-height: fit-content; */
+    /* max-height: 90vh; */
+    height: 80vh;
 }
 
 #modal-content > form {
@@ -58,6 +58,9 @@
 }
 
 .edit-routine-modal {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    font-size: 1.1em;
     width: fit-content;
     display: grid;
     grid-template-rows: 30% 5% 30% 5% 30%;
@@ -68,7 +71,7 @@
     "."
     "BOTH"
     ;
-    height: 100%;
+    min-height: 90%;
     text-align: center;
 
 }
@@ -78,6 +81,8 @@
     align-self: center;
     display: flex;
     flex-wrap: wrap;
+    border-bottom: 1px solid black;
+    padding-bottom: 5%
 }
 
 #edit-pm {
@@ -85,6 +90,8 @@
     align-self: center;
     display: flex;
     flex-wrap: wrap;
+    border-bottom: 1px solid black;
+    padding-bottom: 5%
 }
 
 #edit-both {
@@ -92,6 +99,7 @@
     align-self: center;
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .edit-routine-div {
