@@ -274,37 +274,6 @@ div.routine-container{
     grid-area: routine;
 }
 
-/* div.routine-container {
-    width: 150%;
-    margin-left: -20%;
-    grid-area: routine;
-    padding: 5%;
-
-
-    display: grid;
-    grid-template-columns: 45% 45% 10%;
-    grid-template-rows: 20% 80%;
-
-    grid-template-areas:
-    "header header header"
-    "morning evening button"
-    ;
-}
-
-.am {
-    grid-area: morning;
-}
-
-.pm {
-    grid-area: evening;
-}
-
-.test {
-    grid-area: header;
-}
- */
-
-
 #profile-img {
     padding: 4px;
     border: 1px solid black;
