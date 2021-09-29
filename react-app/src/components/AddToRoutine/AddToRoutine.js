@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import { addToRoutine, deleteFromRoutine, updateRoutine } from '../../store/session'
 import './AddToRoutine.css'
 
-function AddToRoutine({ sessionUser, productId}) {
+function AddToRoutine({ sessionUser, productId, setShowModal=false}) {
     const dispatch = useDispatch()
     const routineArray = Object?.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
@@ -22,13 +22,15 @@ function AddToRoutine({ sessionUser, productId}) {
 
         switch (isInRoutine()){
             case 0:
-                return dispatch(addToRoutine(productId, userId, time))
+                dispatch(addToRoutine(productId, userId, time))
+                break;
             case 1:
-                return dispatch(deleteFromRoutine(routine.id))
+                dispatch(deleteFromRoutine(routine.id))
+                break;
             default:
-                return dispatch(updateRoutine(routine.id, time))
+                dispatch(updateRoutine(routine.id, time))
+                break;
         }
-
     }
 
     const addToPmRoutine = (e) => {
@@ -38,11 +40,14 @@ function AddToRoutine({ sessionUser, productId}) {
 
         switch (isInRoutine()){
             case 0:
-                return dispatch(addToRoutine(productId, userId, time))
+                dispatch(addToRoutine(productId, userId, time))
+                break;
             case 2:
-                return dispatch(deleteFromRoutine(routine.id))
+                dispatch(deleteFromRoutine(routine.id))
+                break;
             default:
-                return dispatch(updateRoutine(routine.id, time))
+                dispatch(updateRoutine(routine.id, time))
+                break;
         }
     }
 
@@ -53,11 +58,14 @@ function AddToRoutine({ sessionUser, productId}) {
 
         switch (isInRoutine()){
             case 0:
-                return dispatch(addToRoutine(productId, userId, time))
+                dispatch(addToRoutine(productId, userId, time))
+                break;
             case 3:
-                return dispatch(deleteFromRoutine(routine.id))
+                dispatch(deleteFromRoutine(routine.id))
+                break;
             default:
-                return dispatch(updateRoutine(routine.id, time))
+                dispatch(updateRoutine(routine.id, time))
+                break;
         }
     }
 

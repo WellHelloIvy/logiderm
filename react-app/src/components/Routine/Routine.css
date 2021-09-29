@@ -1,28 +1,29 @@
 .routine-profile-div {
     display: grid;
-    grid-template-rows: 10% 30% 30% 30%;
+    grid-template-rows: 10% auto auto auto;
     grid-template-areas:
     "header"
     "am"
     "pm"
     "both"
     ;
-    padding: 4%;
+    grid-gap: 3%;
 }
 
 .routine-div a {
     display: inline-block;
     width: fit-content;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.8);
     margin: 2%;
+    color: black;
+    height: fit-content;
 }
 
 .routine-div a:hover {
-text-decoration: none;
-color: rgba(0, 0, 0, 0.8);
-box-shadow:  0 0 .8em black;
-border-radius: .2em;
+    text-decoration: none;
+    box-shadow:  0 0 .8em black;
+    border-radius: .2em;
+    color: black;
 }
 
 b {
