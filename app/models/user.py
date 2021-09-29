@@ -18,6 +18,9 @@ users_joins_skin_types = db.Table(
     db.Column('skin_type_id', db.Integer, db.ForeignKey("skin_types.id")),
 )
 
+def sort_by_id(ele):
+    return ele['id']
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -49,6 +52,7 @@ class User(db.Model, UserMixin):
         concerns = [concern.id for concern in self.concerns]
         skin_types = [skin_type.id for skin_type in self.skin_types]
         routines = [routine.to_dict() for routine in self.routines]
+        routines.sort(key=sort_by_id)
         return {
             'id': self.id,
             'firstName': self.first_name,
