@@ -66,7 +66,7 @@ function AddToRoutine({ sessionUser, productId}) {
             { routine ?
                 <>
                     <p>This product is already in your routine.</p>
-                    <p>You can remove it or update when you're using it:</p>
+                    <p>Update when you're using it, or remove it completely:</p>
                 </>
                 :
                     <p>Add this product your routine:</p>

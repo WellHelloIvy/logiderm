@@ -1,5 +1,6 @@
 .product-page-container{
     margin-top: 60px;
+    padding: 10%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 60% 15% 25%;
@@ -8,6 +9,7 @@
     "name name"
     "ingredients ingredients"
     ;
+    border: 3px solid black;
 }
 
 .product-page-container img {
