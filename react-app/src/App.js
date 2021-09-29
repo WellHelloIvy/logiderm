@@ -8,7 +8,7 @@ import { authenticate } from './store/session';
 import { getLabels } from './store/labels';
 import Category from './components/Category';
 import { getProducts } from './store/products';
-import ProductPage from './components/ProductPage';
+import ProductPage from './components/ProductPage/ProductPage';
 import SplashPage from './components/SplashPage';
 import SearchResults from './components/SearchResults';
 

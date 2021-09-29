@@ -1,0 +1,54 @@
+.routine-profile-div {
+    display: grid;
+    grid-template-rows: 10% 30% 30% 30%;
+    grid-template-areas:
+    "header"
+    "am"
+    "pm"
+    "both"
+    ;
+    padding: 4%;
+}
+
+.routine-div a {
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 2%;
+}
+
+.routine-div a:hover {
+text-decoration: none;
+color: rgba(0, 0, 0, 0.8);
+box-shadow:  0 0 .8em black;
+border-radius: .2em;
+}
+
+b {
+    grid-area: header;
+}
+
+div.am {
+    grid-area: am;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.pm {
+    grid-area: pm;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.am-and-pm {
+    grid-area: both;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

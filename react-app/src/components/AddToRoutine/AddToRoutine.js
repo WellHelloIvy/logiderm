@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux'
-import { addToRoutine, deleteFromRoutine, updateRoutine } from '../store/session'
+import { addToRoutine, deleteFromRoutine, updateRoutine } from '../../store/session'
+import './AddToRoutine.css'
 
-function ProductDetails({ sessionUser, productId}) {
+function AddToRoutine({ sessionUser, productId}) {
     const dispatch = useDispatch()
-    const routineArray = Object.values(sessionUser?.routines)
+    const routineArray = Object?.values(sessionUser?.routines)
     const routine = routineArray.find(routine => routine.productId === +productId);
 
     const isInRoutine = () => {
@@ -62,11 +63,22 @@ function ProductDetails({ sessionUser, productId}) {
 
     return (sessionUser &&
         <>
-            <button className={`${isInRoutine() === 1 ? 'isClicked' : 'no'}`} onClick={addToAmRoutine}>AM</button>
-            <button className={`${isInRoutine() === 2 ? 'isClicked' : 'no'}`} onClick={addToPmRoutine}>PM</button>
-            <button className={`${isInRoutine() === 3 ? 'isClicked' : 'no'}`} onClick={addToBothRoutines}>AM + PM</button>
+            { routine ?
+                <>
+                    <p>This product is already in your routine.</p>
+                    <p>Update when you're using it, or remove it completely:</p>
+                </>
+                :
+                    <p>Add this product your routine:</p>
+
+            }
+            <div className='routine-button-div'>
+                <button className={`${isInRoutine() === 1 ? 'isClicked' : 'no'}`} onClick={addToAmRoutine}>AM</button>
+                <button className={`${isInRoutine() === 2 ? 'isClicked' : 'no'}`} onClick={addToPmRoutine}>PM</button>
+                <button className={`${isInRoutine() === 3 ? 'isClicked' : 'no'}`} onClick={addToBothRoutines}>AM + PM</button>
+            </div>
         </>
     )
 }
 
-export default ProductDetails;
+export default AddToRoutine;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UserConcerns from './UserConcerns';
 import ConcernModal from './ConcernModal';
-import Routine from './Routine'
+import Routine from './Routine/Routine'
 
 function User({ sessionUser }) {
     const [user, setUser] = useState({});
@@ -25,11 +25,11 @@ function User({ sessionUser }) {
     }
 
     return (sessionUser &&
-        <div className='background-image'><img src='https://i.imgur.com/j7rqkkO.jpg'/>
+        // <div className='background-image'><img src='https://i.imgur.com/j7rqkkO.jpg'/>
             <div className='profile-container'>
                 <div className='profile-div'>
                     <div>
-                        <p id='profile-header'>{`${sessionUser.firstName}'s profile`}</p>
+                        <b id='profile-header'>{`${sessionUser.firstName}'s profile`}</b>
                         <img id='profile-img' alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
                     </div>
                     <ul>
@@ -46,7 +46,7 @@ function User({ sessionUser }) {
                     <Routine sessionUser={sessionUser} />
                 </div>
             </div>
-        </div>
+        // </div>
     );
 }
 export default User;

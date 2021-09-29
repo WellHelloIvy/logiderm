@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ProductDetails from "./ProductsDetails";
+import ProductDetails from "./AddToRoutine/AddToRoutine";
 
 const EditRoutineForm = ({ sessionUser, productId }) => {
     const allProducts = useSelector(state => state.products)
@@ -14,8 +14,9 @@ const EditRoutineForm = ({ sessionUser, productId }) => {
     return (
         <div className='edit-routine-modal'>
             <div id="edit-am">
+            <b>AM</b>
                 {amRoutineArray.map((routine) =>
-                    <div id='edit-routine-modal' key={`${allProducts[routine.productId].id}`}>
+                    <div className='edit-routine-div' key={`${allProducts[routine.productId].id}`}>
                         <p>{allProducts[routine.productId].brand}</p>
                         <p>{allProducts[routine.productId].name}</p>
                         <ProductDetails sessionUser={sessionUser} productId={allProducts[routine.productId].id} />
@@ -23,18 +24,19 @@ const EditRoutineForm = ({ sessionUser, productId }) => {
                 )}
             </div >
             <div id="edit-pm">
+            <b>PM</b>
                 {pmRoutineArray.map((routine) =>
-                    <div id='edit-routine-modal' key={`${allProducts[routine.productId].id}`}>
+                    <div className='edit-routine-div' key={`${allProducts[routine.productId].id}`}>
                         <p>{allProducts[routine.productId].brand}</p>
                         <p>{allProducts[routine.productId].name}</p>
                         <ProductDetails sessionUser={sessionUser} productId={allProducts[routine.productId].id} />
                     </div>
                 )}
             </div>
-
             <div id="edit-both">
+            <b>AM + PM</b>
                 {inBothRoutines.map((routine) =>
-                    <div id='edit-routine-modal' key={`${allProducts[routine.productId].id}`}>
+                    <div className='edit-routine-div' key={`${allProducts[routine.productId].id}`}>
                         <p>{allProducts[routine.productId].brand}</p>
                         <p>{allProducts[routine.productId].name}</p>
                         <ProductDetails sessionUser={sessionUser} productId={allProducts[routine.productId].id} />

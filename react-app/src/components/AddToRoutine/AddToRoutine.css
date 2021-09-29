@@ -1,0 +1,9 @@
+.routine-button-div button {
+    margin: 2% 2%;
+}
+
+.routine-button-div button:hover {
+    margin: 2% 2%;
+    box-shadow: 0px 0px .5em .2em black;
+}
+
