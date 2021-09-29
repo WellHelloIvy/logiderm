@@ -17,16 +17,39 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
-
-def valid_password (form, field):
+def validate_password(form, field):
     password = field.data
-    reggie = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
-    match = re.fullmatch(reggie, password)
-    if not match:
-        raise ValidationError(f'Password must be at least 6 characters, contain one number, uppercase letter, one lowercase letter and one special character (@$!%*?&)')
+    regex_eight_min = "^.{8,}$"
+    regex_lower_case = "^.*[a-z]+.*$"
+    regex_upper_case = "^.*[A-Z]+.*$"
+    regex_digit = "^.*\d+.*$"
+    regex_special = "^.*[@$!%*?&]+.*$"
+
+    eight_matches = re.fullmatch(regex_eight_min, password)
+    lower_case_matches = re.fullmatch(regex_lower_case, password)
+    upper_case_matches = re.fullmatch(regex_upper_case, password)
+    digit_matches = re.fullmatch(regex_digit, password)
+    special_matches = re.fullmatch(regex_special, password)
+
+    errors = []
+
+    if not eight_matches and len(password):
+        errors.append("Must be at least 8 characters")
+    if not lower_case_matches and len(password):
+        errors.append("Must contain at least one lower case character")
+    if not upper_case_matches and len(password):
+        errors.append("Must contain at least one upper case character")
+    if not digit_matches and len(password):
+        errors.append("Must contain at least one digit")
+    if not special_matches and len(password):
+        errors.append("Must contain at least one special character (@, $, !, %, *, ?, &)")
+
+    if len(errors):
+        raise ValidationError(errors)
+
 
 class SignUpForm(FlaskForm):
     first_name = StringField('first_name', validators=[DataRequired()])
     last_name = StringField('last_name', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired(), user_exists, Email()])
-    password = StringField('password', validators=[DataRequired(), valid_password])
+    password = StringField('password', validators=[DataRequired(), validate_password])
