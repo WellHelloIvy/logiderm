@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import RoutineModal from "../RoutineModal";
 import './Routine.css'
 import EditRoutineModal from "../EditRoutineModal/EditRoutineModal";
 
@@ -8,13 +7,9 @@ function UserRoutine({ sessionUser }) {
     const routinesArray = Object.values(sessionUser.routines)
     const allProducts = useSelector(state => state.products)
 
-
-
     const amRoutineArray = routinesArray.filter(routine => routine.time === 1);
     const pmRoutineArray = routinesArray.filter(routine => routine.time === 2);
     const inBothRoutines = routinesArray.filter(routine => routine.time === 3);
-
-
 
     return (
 
