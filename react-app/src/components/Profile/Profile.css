@@ -1,3 +1,12 @@
+#profile-img {
+    padding: 4px;
+    border: 1px solid black;
+    object-fit: cover;
+    width: 10vw;
+    height: 60%;
+    grid-area: profpic;
+}
+
 .profile-container{
     display: grid;
     grid-template-columns: auto auto;
@@ -21,7 +30,14 @@ div.profile-container b {
 
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+
+    align-content: space-around;
+}
+
+.profile-container .profile-div ul {
+    list-style: none;
+    padding: 0;
+    font-size: .7em;
 }
 
 .profile-container .concerns-div {

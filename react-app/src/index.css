@@ -9,31 +9,11 @@ html {
     overflow-x: hidden;
 }
 
-* {
+/* * {
     box-sizing: border-box;
-}
+} */
 
-nav {
-    margin: 0px;
-    position: fixed;
-    top: 0px;
-    padding: 0% 30%;
-    height: 40px;
-    width: 100vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-    font-size: .8em;
-    font-weight: 800;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.8);
-    z-index: 2;
-}
+
 
 button {
     background: none;
@@ -50,15 +30,7 @@ nav > div > a {
     color: black;
 }
 
-nav button {
-    background: none;
-    border: none;
-    padding: 0;
-    font: inherit;
-    text-decoration: none;
-    text-transform: uppercase;
 
-}
 
 form input {
     background: none;
@@ -208,14 +180,6 @@ form input {
     width: 100vw;
     height: 100vw;
     overflow-x: hidden;
-}
-
-#profile-img {
-    padding: 4px;
-    border: 1px solid black;
-    object-fit: cover;
-    width: 10vw;
-    grid-area: profpic;
 }
 
 img {

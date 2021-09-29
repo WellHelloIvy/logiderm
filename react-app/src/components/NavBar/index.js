@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
 import { NavLink, useHistory } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import SignUpFormModal from './SignUpFormModal';
-import LoginFormModal from './LoginFormModal';
-import CategoriesDropdown from './CategoriesDropdown';
-import Search from './Search/Search';
+import LogoutButton from '../auth/LogoutButton';
+import SignUpFormModal from '../SignUpFormModal';
+import LoginFormModal from '../LoginFormModal';
+import CategoriesDropdown from '../CategoriesDropdown';
+import Search from '../Search/Search';
 import { useDispatch } from 'react-redux';
-import { demo } from '../store/session';
+import { demo } from '../../store/session';
+import './NavBar.css'
 
 const NavBar = ({ sessionUser, authenticated }) => {
   const history = useHistory()
