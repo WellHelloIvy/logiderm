@@ -5,7 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import SignUpFormModal from './SignUpFormModal';
 import LoginFormModal from './LoginFormModal';
 import CategoriesDropdown from './CategoriesDropdown';
-import Search from './Search';
+import Search from './Search/Search';
 import { useDispatch } from 'react-redux';
 import { demo } from '../store/session';
 

@@ -7,7 +7,8 @@ function SplashPage() {
             <div  id='splash-container'>
                 <img id='logo' src='https://i.imgur.com/m66mLpK.png' />
                 <div className='gif-container'>
-                    <img id='banner-gif' src='https://media4.giphy.com/media/Hd3EXEZmacCoYtwVZR/giphy.gif?cid=ecf05e47591sypnoq8g6kmbz4q04e44gtzcm6s3mluu0qurl&rid=giphy.gif&ct=g' />
+                    {/* <img id='banner-gif' src='https://media4.giphy.com/media/Hd3EXEZmacCoYtwVZR/giphy.gif?cid=ecf05e47591sypnoq8g6kmbz4q04e44gtzcm6s3mluu0qurl&rid=giphy.gif&ct=g' /> */}
+                    <img id='banner-gif' src='https://i.imgur.com/ovB1AZi.jpg' />
                 </div>
                 <div className='filler-div'>
                     <div className='empty-div'></div>
