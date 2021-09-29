@@ -29,7 +29,7 @@
     flex-direction: column;
     /* min-height: fit-content; */
     /* max-height: 90vh; */
-    height: 80vh;
+    height: fit-content;
 }
 
 #modal-content > form {
@@ -57,7 +57,7 @@
 
 }
 
-.edit-routine-modal {
+/* .edit-routine-modal {
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     font-size: 1.1em;
@@ -74,7 +74,7 @@
     min-height: 90%;
     text-align: center;
 
-}
+} */
 
 #edit-am {
     grid-area: AM;
