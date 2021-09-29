@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './Search.css'
 
 const Search = ({ searchQuery, setSearchQuery, setRenderSearchDropdown}) => {
     const products = Object.values(useSelector(state => state.products))
@@ -13,7 +14,7 @@ const Search = ({ searchQuery, setSearchQuery, setRenderSearchDropdown}) => {
     }
 
     return(
-        <div className='dropdown'>
+        <div className='dropdown search-dropdown'>
             <i onClick={handleClick} className="fas fa-times fa-2x"></i>
             {searchResults.length ?
                 searchResults.map(product =>
