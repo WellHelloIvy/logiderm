@@ -27,25 +27,23 @@ function Profile({ sessionUser }) {
 
     return (sessionUser &&
         // <div className='background-image'><img src='https://i.imgur.com/j7rqkkO.jpg'/>
-            <div className='profile-container'>
-                <div className='profile-div'>
-                    <div>
-                        <b id='profile-header'>{`${sessionUser.firstName}'s profile`}</b>
-                        <img id='profile-img' alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
-                    </div>
-                    <ul>
-                        <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
-                        <li>{sessionUser.email}</li>
-                    </ul>
-                </div>
-                <div className='concerns-div'>
-                    <UserConcerns sessionUser={sessionUser} />
-                    <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
-                </div>
-                <div className='routine-container'>
-                    <Routine sessionUser={sessionUser} />
-                </div>
+        <div className='profile-container'>
+            <div className='profile-div'>
+                <b id='profile-header'>{`${sessionUser.firstName}'s profile`}</b>
+                <img id='profile-img' alt={`${sessionUser.firstName}'s profile`} src={sessionUser.imgUrl}></img>
+                <ul>
+                    <li>{`${sessionUser.firstName} ${sessionUser.lastName}`}</li>
+                    <li>{sessionUser.email}</li>
+                </ul>
             </div>
+            <div className='concerns-div'>
+                <UserConcerns sessionUser={sessionUser} />
+                <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
+            </div>
+            <div className='routine-container'>
+                <Routine sessionUser={sessionUser} />
+            </div>
+        </div>
         // </div>
     );
 }

@@ -1,17 +1,20 @@
 .routine-profile-div {
     display: grid;
-    grid-template-rows: 10% auto auto auto;
+    grid-template-rows: 3% auto auto auto;
     grid-template-areas:
     "header"
     "am"
     "pm"
     "both"
     ;
-    grid-gap: 3%;
+    grid-gap: 1%;
+    height: fit-content;
+    border: 3px solid black;
+    padding: 3%;
 }
 
 .routine-div {
-    padding: 4%;
+    margin: 2%;
 }
 
 .routine-div a {
@@ -32,6 +35,7 @@
 
 b {
     grid-area: header;
+    margin: 0;
 }
 
 div.am {
