@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ProductDetails from "./ProductsDetails";
+import ProductDetails from "./AddToRoutine/AddToRoutine";
 
 const EditRoutineForm = ({ sessionUser, productId }) => {
     const allProducts = useSelector(state => state.products)

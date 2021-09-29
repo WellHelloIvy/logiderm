@@ -1,0 +1,29 @@
+.product-page-container{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60% 15% 25%;
+    grid-template-areas:
+    "image routine"
+    "name name"
+    "ingredients ingredients"
+    ;
+}
+
+.product-page-container img {
+    grid-area: image;
+}
+
+.product-page-container .add-to-routine-div {
+    grid-area: routine;
+}
+
+.product-page-container h1 h2{
+    grid-area: name;
+}
+
+.product-page-container p {
+    grid-area: ingredients;
+}
+
+

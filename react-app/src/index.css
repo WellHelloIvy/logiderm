@@ -1,4 +1,4 @@
-#root {
+ #root {
     position: absolute;
     left: 0px;
     width: 100%;
@@ -69,7 +69,7 @@ form input {
 }
 
 .body{
-    /* position: absolute; */
+    /* position: absolute;*/
     top: 60px;
     height: 100vw;
     padding: 0 30%;
@@ -118,7 +118,7 @@ form input {
 }
 
 
-/* Splash */
+/* Splash*/
 
 #logo {
     position: absolute;
@@ -191,7 +191,7 @@ form input {
 }
 
 
-/* profile */
+
 .background-image > img {
     padding: none;
     box-sizing: border-box;
