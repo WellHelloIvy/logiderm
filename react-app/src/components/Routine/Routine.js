@@ -20,31 +20,68 @@ function UserRoutine({ sessionUser }) {
         e.preventDefault();
         setSelectedProductId(+e.target.id);
         setShowModal(true)
+    }
+
+    const routineExists = (arr) => {
+        if (arr.length) {
+            return true;
+        }
+        return false;
+    }
+
+    const hasRoutines = (arrAm, arrPm, arrBoth) => {
+        if (routineExists(arrAm)) {
+            return true;
         }
 
-    return (
+        if (routineExists(arrPm)) {
+            return true;
+        }
+
+        if (routineExists(arrBoth)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    return (hasRoutines(amRoutineArray, pmRoutineArray, inBothRoutines) ?
         <>
             <div className='routine-profile-div'>
-                <b>Your Routines</b>
+                <b>Your Routines:</b>
                 <div className='routine-div am'>
-                    <b>AM</b>
-                    {amRoutineArray.map(routine =>
-                        <Link id={allProducts[routine.productId].id} to='nowhere' onClick={clickHandler}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
-                    )}
+                    {routineExists(amRoutineArray) &&
+                        <>
+                            <b>AM</b>
+                            {amRoutineArray.map(routine =>
+                                <Link key={routine.id} id={allProducts[routine.productId].id} to='nowhere' onClick={clickHandler}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
+                            )}
+                        </>
+                    }
                 </div>
                 <div className='routine-div pm'>
-                    <b>PM</b>
-                    {pmRoutineArray.map(routine =>
-                        <Link id={allProducts[routine.productId].id} to='nowhere' onClick={clickHandler}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
-                    )}
+                    {routineExists(pmRoutineArray) &&
+                        <>
+                            <b>PM</b>
+                            {pmRoutineArray.map(routine =>
+                                <Link key={routine.id} id={allProducts[routine.productId].id} to='nowhere' onClick={clickHandler}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
+                            )}
+                        </>
+                    }
                 </div>
                 <div className='routine-div am-and-pm'>
-                    <b>AM + PM</b>
-                    {inBothRoutines.map(routine =>
-                        <Link id={allProducts[routine.productId].id} to='nowhere' onClick={clickHandler}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
-                    )}
+                    {(routineExists(inBothRoutines)) &&
+                        <>
+                            <b>AM + PM</b>
+                            {inBothRoutines.map(routine =>
+                                <Link key={routine.id} id={allProducts[routine.productId].id} to='nowhere' onClick={clickHandler}>{`${allProducts[routine.productId].brand} ${allProducts[routine.productId].name}`}</Link>
+                            )}
+                        </>
+                    }
+
                 </div>
             </div>
+
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <div className='edit-routine-modal'>
@@ -58,12 +95,21 @@ function UserRoutine({ sessionUser }) {
                         <div className='add-to-routine'>
                             <AddToRoutine setShowModal={setShowModal} sessionUser={sessionUser} productId={product.id} />
                         </div>
-
                     </div>
 
                 </Modal>
             )}
+
         </>
+        :
+        <>
+            <div className='routine-profile-div'>
+                <b>Your Routine:</b>
+                <p>Looks like you haven't added any products to your routine.</p>
+                <p>Feel free to browse categories or search for specific products to add.</p>
+            </div>
+        </>
+
     )
 }
 
