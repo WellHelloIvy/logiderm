@@ -10,6 +10,10 @@
     grid-gap: 3%;
 }
 
+.routine-div {
+    padding: 4%;
+}
+
 .routine-div a {
     display: inline-block;
     width: fit-content;

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import UserConcerns from './UserConcerns';
-import ConcernModal from './ConcernModal';
-import Routine from './Routine/Routine'
+import UserConcerns from '../UserConcerns';
+import ConcernModal from '../ConcernModal';
+import Routine from '../Routine/Routine'
+import './Profile.css'
 
-function User({ sessionUser }) {
+function Profile({ sessionUser }) {
     const [user, setUser] = useState({});
     const { userId } = useParams();
     const [setShowConcernModal] = useState(false);
@@ -37,7 +38,6 @@ function User({ sessionUser }) {
                         <li>{sessionUser.email}</li>
                     </ul>
                 </div>
-
                 <div className='concerns-div'>
                     <UserConcerns sessionUser={sessionUser} />
                     <ConcernModal sessionUser={sessionUser} setShowModal={setShowConcernModal} showModal={setShowConcernModal} />
@@ -49,4 +49,4 @@ function User({ sessionUser }) {
         // </div>
     );
 }
-export default User;
+export default Profile;

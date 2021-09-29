@@ -22,8 +22,6 @@ function UserRoutine({ sessionUser }) {
         setShowModal(true)
         }
 
-
-
     return (
         <>
             <div className='routine-profile-div'>

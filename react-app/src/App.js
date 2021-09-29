@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import User from './components/User';
+import Profile from './components/Profile';
 import { authenticate } from './store/session';
 import { getLabels } from './store/labels';
 import Category from './components/CategoryPage';
@@ -50,7 +50,7 @@ function App() {
                         <ProductPage sessionUser={sessionUser} />
                     </Route>
                     <ProtectedRoute path='/profile' >
-                        <User sessionUser={sessionUser} />
+                        <Profile sessionUser={sessionUser} />
                     </ProtectedRoute>
                 </Switch>
             </div>

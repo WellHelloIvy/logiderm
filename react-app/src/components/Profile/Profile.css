@@ -1,0 +1,46 @@
+.profile-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+    "profile concerns"
+    "routine routine"
+    ;
+
+    grid-gap: 5%;
+    margin-top: 60px;
+}
+
+div.profile-container b {
+    font-size: 1em;
+}
+
+.profile-container .profile-div {
+    grid-area: profile;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.profile-container .concerns-div {
+    grid-area: concerns;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.profile-container .user-concerns {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.profile-container .routine-container {
+    grid-area: routine;
+}
