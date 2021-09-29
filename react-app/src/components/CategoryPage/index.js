@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import Products from './Products';
+import Products from '../Products';
+import './CategoryPage.css'
 
 function Category() {
     let { categoryId } = useParams();
@@ -12,8 +13,8 @@ function Category() {
     let categoryProducts = allProducts.filter(product => product.categoryId === +categoryId)
 
     return( categoryProducts &&
-        <div>
-            <h1>{category}</h1>
+        <div className='category-page-container'>
+            <h1>{`${category}s`}</h1>
             <Products categoryId={categoryId} />
         </div>
     )

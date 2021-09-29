@@ -1,0 +1,24 @@
+.category-page-container {
+    margin-top: 60px;
+    padding: 5%;
+}
+
+.category-page-container a {
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    margin: 1%;
+    color: black;
+    height: fit-content;
+    padding: .4% .6%;
+    border-radius: 2px;
+}
+
+.category-page-container a:hover {
+    text-decoration: none;
+    box-shadow:  0 0 .8em black;
+    border-radius: .2em;
+    color: black;
+}
+
+

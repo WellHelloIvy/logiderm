@@ -6,7 +6,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
 import { getLabels } from './store/labels';
-import Category from './components/Category';
+import Category from './components/CategoryPage';
 import { getProducts } from './store/products';
 import ProductPage from './components/ProductPage/ProductPage';
 import SplashPage from './components/SplashPage';
