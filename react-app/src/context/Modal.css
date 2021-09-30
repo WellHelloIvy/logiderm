@@ -29,12 +29,12 @@
     flex-direction: column;
     /* min-height: fit-content; */
     /* max-height: 90vh; */
-    height: fit-content;
+    min-height: fit-content;
+    width: fit-content;
 }
 
 #modal-content > form {
-    width: 20vw;
-    height: 40vh;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -44,16 +44,18 @@
     font-size: .8em;
     font-weight: 800;
 
+
 }
 
 #modal-content h1 {
     margin-top: -10%;
 }
 
-#modal-content > input {
+#modal-content input {
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     font-size: 1.1em;
+    margin: 3% 0%;
 
 }
 
