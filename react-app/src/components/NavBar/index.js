@@ -95,7 +95,9 @@ const NavBar = ({ sessionUser, authenticated }) => {
         </>
         :
         <>
-          <span>{`Welcome, ${sessionUser?.firstName}`}</span>
+          <div>
+             <span>{`Welcome, ${sessionUser?.firstName}`}</span>
+          </div>
           <div>
             <NavLink onClick={handleNavClick} to='/profile' activeClassName='active'>
               Profile
