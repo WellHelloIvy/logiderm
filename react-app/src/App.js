@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
@@ -11,13 +11,15 @@ import { getProducts } from './store/products';
 import ProductPage from './components/ProductPage/ProductPage';
 import SplashPage from './components/SplashPage'
 import SearchResults from './components/SearchResults';
+import { useHistory } from 'react-router';
 
 
 function App() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
-    const sessionUser =useSelector(state => state.session?.user)
+    const sessionUser = useSelector(state => state.session?.user)
     let authenticated = sessionUser !== null
+    const history = useHistory();
 
     useEffect(() => {
         (async () => {
@@ -25,6 +27,9 @@ function App() {
             await dispatch(getLabels());
             await dispatch(getProducts());
             setLoaded(true);
+            history.listen(() => {
+                document.querySelector('.body').scrollTop = 0
+            })
         })();
     }, [dispatch]);
 
@@ -33,11 +38,11 @@ function App() {
     }
 
     return (
-        <BrowserRouter>
-            <NavBar sessionUser={sessionUser} authenticated={authenticated}/>
+        <>
+            <NavBar sessionUser={sessionUser} authenticated={authenticated} />
             <div className='body'>
                 <Switch>
-                    <Route exact path = '/' >
+                    <Route exact path='/' >
                         <SplashPage />
                     </Route>
                     <Route path='/search'>
@@ -54,7 +59,7 @@ function App() {
                     </ProtectedRoute>
                 </Switch>
             </div>
-        </BrowserRouter>
+        </>
     );
 }
 
