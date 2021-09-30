@@ -10,7 +10,7 @@ function ProductPage({ sessionUser }) {
 
     return (
         <div className='product-page-container'>
-            <img src={`${product.img}`}></img>
+            <img alt='fake product' src={`${product.img}`}></img>
             <h1>{product.brand}</h1>
             <h2>{product.name}</h2>
             <div className='add-to-routine-div'>

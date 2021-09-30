@@ -31,7 +31,7 @@ function App() {
                 document.querySelector('.body').scrollTop = 0
             })
         })();
-    }, [dispatch]);
+    }, [dispatch, history]);
 
     if (!loaded) {
         return null;
