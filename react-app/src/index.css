@@ -28,15 +28,15 @@ form input {
 }
 
 .body{
-    /* position: absolute;*/
-    top: 60px;
-    /* height: 100vw; */
+    position: absolute;
+    top: 40px;
+    height: calc(100vh - 60px);
     padding: 0 30%;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     font-size: 1.1em;
     color: rgba(0, 0, 0, 0.8);
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .dropdown {
