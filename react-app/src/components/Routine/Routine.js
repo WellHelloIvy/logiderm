@@ -48,7 +48,10 @@ function UserRoutine({ sessionUser }) {
     return (hasRoutines(amRoutineArray, pmRoutineArray, inBothRoutines) ?
         <>
             <div className='routine-profile-div'>
-                <b>Your Routines:</b>
+                <div>
+                    <b>Your Routines:</b>
+                    <p>Click on a product to update or delete it.</p>
+                </div>
                 <div className='routine-div am'>
                     {routineExists(amRoutineArray) &&
                         <>

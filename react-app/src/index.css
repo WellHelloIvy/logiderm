@@ -17,6 +17,9 @@ nav > div > a {
     color: black;
 }
 
+#edit-concerns-button:hover {
+    box-shadow:  0 0 .8em black;
+}
 
 
 form input {
@@ -29,6 +32,7 @@ form input {
 
 .body{
     position: absolute;
+    left: 0px;
     top: 40px;
     height: calc(100vh - 60px);
     padding: 0 30%;
@@ -37,6 +41,7 @@ form input {
     font-size: 1.1em;
     color: rgba(0, 0, 0, 0.8);
     /* overflow-y: auto; */
+    width: 40vw;
 }
 
 .dropdown {
