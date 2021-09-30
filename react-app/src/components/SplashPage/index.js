@@ -14,10 +14,10 @@ function SplashPage() {
                         <i className="fab fa-linkedin fa-3x"></i>
                     </a>
                     <a href='https://github.com/WellHelloIvy'>
-                        <i class="fab fa-github-square fa-3x"></i>
+                        <i className="fab fa-github-square fa-3x"></i>
                     </a>
                     <a href='http://programmatic-app.herokuapp.com'>
-                        <i class="far fa-smile fa-3x"></i>
+                        <i className="far fa-smile fa-3x"></i>
                     </a>
                 </div>
                 <div className='dev'>

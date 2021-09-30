@@ -93,7 +93,7 @@ function UserRoutine({ sessionUser }) {
                             <b>{`${product?.name}`}</b>
                         </div>
                         <div className="edit-product-image">
-                            <img src={`${product?.img}`}></img>
+                            <img alt='fake product' src={`${product?.img}`}></img>
                         </div>
                         <div className='add-to-routine'>
                             <AddToRoutine setShowModal={setShowModal} sessionUser={sessionUser} productId={product.id} />
