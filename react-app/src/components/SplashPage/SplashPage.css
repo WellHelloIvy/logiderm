@@ -1,0 +1,64 @@
+#logo {
+    position: absolute;
+    left: 6%;
+    top: 7%;
+    width: 18vw;
+    z-index: 1;
+    padding: 8px;
+    border: 1px solid white;
+}
+
+#banner-gif{
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+     /* /* overflow-x: hidden; */
+}
+
+.prof-div{
+position: absolute;
+bottom: 0px;
+right: 0px;
+background-color: white;
+/* border-top: 8em solid black;
+border-bottom: 8em solid black;
+border-left: 2em solid black;
+border-right: 2em solid black; */
+padding: 1%;
+width: 15vw;
+min-width: fit-content;
+margin: 9%;
+
+display: flex;
+justify-content: space-around;
+
+z-index: 2;
+}
+
+.dev {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: black;
+    margin: 4%;
+    padding: 3% 1% 16% 1%;
+    width: 25%;
+    min-width: 223px;
+
+    border: 1px solid white;
+}
+
+.dev b {
+    color: white;
+    margin-left: 2%;
+    font-size: 1em;
+}
+
+.prof-div > a > i {
+    color: black;
+}
