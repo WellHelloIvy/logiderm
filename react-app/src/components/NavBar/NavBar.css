@@ -46,3 +46,7 @@ nav a:hover {
     border-radius: .2em;
 
 }
+
+#search-input {
+    min-width: fit-content;
+}

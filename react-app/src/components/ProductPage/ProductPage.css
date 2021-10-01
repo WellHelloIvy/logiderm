@@ -10,6 +10,7 @@
     "ingredients ingredients"
     ;
     border: 3px solid black;
+    min-width: fit-content;
 }
 
 .product-page-container img {

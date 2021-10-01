@@ -109,7 +109,7 @@ function UserRoutine({ sessionUser }) {
             <div className='routine-profile-div'>
                 <b>Your Routine:</b>
                 <p>Looks like you haven't added any products to your routine.</p>
-                <p>Feel free to browse categories or search for specific products to add.</p>
+                <p>Feel free to browse categories for products to add.</p>
             </div>
         </>
 

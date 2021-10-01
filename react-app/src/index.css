@@ -41,14 +41,14 @@ form input {
     font-size: 1.1em;
     color: rgba(0, 0, 0, 0.8);
     /* overflow-y: auto; */
-    width: 40vw;
+    /* width: 40vw; */
 }
 
 .dropdown {
     position: absolute;
     top:40px;
     left: 0px;
-    width: 100vw;
+    width: 100%;
     height: fit-content;
     /* padding: 10% 30% 20%; */
     display: flex;
