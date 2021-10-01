@@ -39,15 +39,15 @@ React was extremely useful for dynamically rendering the application, providing 
 During my last project, I realized how useful a well organized Redux store could be. So for Logiderm, I tried to use the Redux store as much as possible. Spending the extra time to think through my state structure made accessing the data I needed easy and efficient.
 
 
-##Backend Overview
+## Backend Overview
 I used Python and Flask SQLAlchemy to build out my backend.
 
-###Python
+### Python
 For our capstone projects, we were given the choice between Express and Python for our backends. Two of my other projects utilized Express and I wanted to expand my knowledge of Python. 
 
 
 For the purpose of this project, I wanted to make seeder data to (roughly) replicate the type of data I’ll be parsing through in the future. Python made this super easy with the python random module.
 
 
-###Flask SQLAlchemy
+### Flask SQLAlchemy
 This was my first project in which my database had many-to-many relationships. I had to create several helper tables and the Flask SQLAlchemy docs made the process pretty straightforward. 
