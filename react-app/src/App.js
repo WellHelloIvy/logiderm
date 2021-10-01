@@ -12,6 +12,7 @@ import ProductPage from './components/ProductPage/ProductPage';
 import SplashPage from './components/SplashPage'
 import SearchResults from './components/SearchResults';
 import { useHistory } from 'react-router';
+import PageNotFound from './components/PageNotFound';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
                     <ProtectedRoute path='/profile' >
                         <Profile sessionUser={sessionUser} />
                     </ProtectedRoute>
+                    <PageNotFound />
                 </Switch>
             </div>
         </>
