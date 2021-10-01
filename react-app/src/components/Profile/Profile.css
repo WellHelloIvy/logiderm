@@ -62,6 +62,6 @@ div.profile-container b {
 }
 
 .routine-profile-div {
-    min-height: fit-content;
+    min-height: calc(fit-content + 30px);
     min-width: 250px;
 }
