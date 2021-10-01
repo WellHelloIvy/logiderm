@@ -21,7 +21,7 @@ function SplashPage() {
                     </a>
                 </div>
                 <div className='dev'>
-                    <b>About the Developer:</b>
+                    {/* <b>About the Developer:</b> */}
                 </div>
             </div>
         </>
