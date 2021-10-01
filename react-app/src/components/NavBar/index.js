@@ -79,14 +79,14 @@ const NavBar = ({ sessionUser, authenticated }) => {
           <CategoriesDropdown categoryEntries={categoryEntries} setRenderCategoriesDropdown={setRenderCategoriesDropdown}  />
         }
       </div>
-      <div onClick={e => e.stopPropagation()}>
+      {/* <div onClick={e => e.stopPropagation()}>
         <form onSubmit={searchSubmitHandler}>
-          <input placeholder='Search' onClick={handleSearchClick} value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
+          <input id='search-input' placeholder='Search for products by product name' onClick={handleSearchClick} value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
           {renderSearchDropdown &&
             <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} setRenderSearchDropdown={setRenderSearchDropdown} />
           }
         </form>
-      </div>
+      </div> */}
       {!authenticated ?
         <>
           <LoginFormModal onClick={handleNavClick} />
