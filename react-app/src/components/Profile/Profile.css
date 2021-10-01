@@ -60,3 +60,7 @@ div.profile-container b {
 .profile-container .routine-container {
     grid-area: routine;
 }
+
+.routine-profile-div {
+    min-height: fit-content;
+}
