@@ -63,4 +63,5 @@ div.profile-container b {
 
 .routine-profile-div {
     min-height: fit-content;
+    min-width: 250px;
 }
