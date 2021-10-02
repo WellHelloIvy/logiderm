@@ -3,9 +3,10 @@
     left: 6%;
     top: 7%;
     width: 18vw;
-    z-index: 2;
+    z-index: 1;
     padding: 8px;
     border: 1px solid white;
+    max-height: 50vh;
 }
 
 #banner-gif{
@@ -33,7 +34,7 @@ margin: 2%;
 display: flex;
 justify-content: space-around;
 
-z-index: 2;
+z-index: 1;
 border: 9px solid black;
 }
 
@@ -59,4 +60,5 @@ border: 9px solid black;
 
 .prof-div > a > i {
     color: black;
+    max-height: 10vh;
 }
