@@ -57,6 +57,11 @@ div.profile-container b {
     justify-content: space-evenly;
 }
 
+.user-concerns p {
+    margin-left: 1em;
+    
+}
+
 .profile-container .routine-container {
     grid-area: routine;
 }
