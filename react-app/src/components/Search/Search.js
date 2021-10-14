@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Search.css'
@@ -6,11 +6,29 @@ import './Search.css'
 const Search = ({ searchQuery, setSearchQuery, setRenderSearchDropdown}) => {
     const products = Object.values(useSelector(state => state.products))
 
-    const searchResults = products?.filter(product => product.name.toLowerCase().includes(searchQuery?.toLowerCase()))
+    const brandNameProducts = products.map(product => {
+        return {
+            id: product.id,
+            brandName:`${product.brand} ${product.name}`
+        }
+    })
+
+    let searchResults =  brandNameProducts?.filter(product => product.brandName.toLowerCase().includes(searchQuery?.toLowerCase()))
 
     const handleClick = () => {
         setRenderSearchDropdown(false);
         setSearchQuery('');
+    }
+
+    const matchHighlight = (searchResult) => {
+        const index = searchResult.toLowerCase().indexOf(searchQuery.toLowerCase());
+        const length = searchQuery.length;
+
+        const beforeMatch = searchResult.slice(0, index);
+        const matchingPortion = searchResult.slice(index, index + length)
+        const afterMatch = searchResult.slice(index + length)
+
+        return <span>{beforeMatch}<span className='searchMatch'>{matchingPortion}</span>{afterMatch}</span>
     }
 
     return(
@@ -19,7 +37,7 @@ const Search = ({ searchQuery, setSearchQuery, setRenderSearchDropdown}) => {
             {searchResults.length ?
                 searchResults.map(product =>
                     <Link key={product.id} to={`/products/${product.id}`} onClick={handleClick}>
-                    {`${product.brand} ${product.name}`}
+                    {matchHighlight(product.brandName)}
                     </Link>
                 )
                 :
