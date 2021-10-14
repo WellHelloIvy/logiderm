@@ -5,3 +5,8 @@ div.search-dropdown a{
 div.search-dropdown i{
     padding-right: 3%;
 }
+
+.searchMatch {
+    color: red
+
+}
