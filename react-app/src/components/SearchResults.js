@@ -14,7 +14,10 @@ const SearchResults = () => {
     const categoriesObj = useSelector(state => state.labels.categories)
 
 
-    const productResults = products?.filter(product => product.name.toLowerCase().includes(searchQuery?.toLowerCase()));
+    let productResults = products?.filter(product => {
+        let brandName = `${product.brand} ${product.name}`;
+        return brandName.toLowerCase().includes(searchQuery?.toLowerCase())
+    });
 
     const [filteredResults, setFilteredResults] = useState([...productResults]);
 
@@ -22,29 +25,33 @@ const SearchResults = () => {
         return arr1.filter(ele => arr2.includes(ele))
     }
 
+
+
     useEffect(() => {
+        productResults = products?.filter(product => {
+            let brandName = `${product.brand} ${product.name}`;
+            return brandName.toLowerCase().includes(searchQuery?.toLowerCase())
+        });
 
         let brandResults = [...productResults];
         let categoryResults = [...productResults];
+
         if (brandFilter.length) {
             brandResults = (productResults.filter(product => brandFilter.includes(product.brand.toLowerCase())))
         }
 
         if (categoryFilter.length) {
             categoryResults = (productResults.filter(product => categoryFilter.includes(product.categoryId)))
-        }
-        else {
+        } 
+
+        let filtered = findCommonElements(brandResults, categoryResults)
+        if (filtered.length) {
+            setFilteredResults([...filtered])
+        } else {
             setFilteredResults([...productResults])
         }
 
-        let filtered = findCommonElements(brandResults, categoryResults)
-            if(filtered.length) {
-                setFilteredResults([...filtered])
-            } else {
-                setFilteredResults([...productResults])
-            }
-
-    }, [brandFilter, categoryFilter])
+    }, [brandFilter, categoryFilter, searchQuery])
 
 
     const handleBrandClick = (e) => {
@@ -61,6 +68,13 @@ const SearchResults = () => {
 
     const handleCategoryClick = (e) => {
         const categoryFilterCopy = [...categoryFilter]
+        const clicked = e.target.classList.contains('isClicked')
+
+        if (!clicked) {
+            e.target.classList.add('isClicked')
+        } else {
+            e.target.classList.remove('isClicked')
+        }
 
         if (categoryFilterCopy.includes(+e.target.id)) {
             const indexOfCategoryId = categoryFilterCopy.indexOf(+e.target.id);
@@ -93,11 +107,11 @@ const SearchResults = () => {
                 </div>
                 <div>
                     <b>Categories</b>
-                        {categoryIdsArr.map(id =>
-                            <>
-                                <button id={id} onClick={handleCategoryClick}>{categoriesObj[+id]}</button>
-                            </>
-                        )}
+                    {categoryIdsArr.map(id =>
+                        <>
+                            <button id={id} onClick={handleCategoryClick}>{categoriesObj[+id]}</button>
+                        </>
+                    )}
                 </div>
             </div>
 
@@ -105,7 +119,7 @@ const SearchResults = () => {
             <h2>Products that match your search:</h2>
             <div className='results'>
                 {filteredResults.map(product =>
-                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name}`}</Link>
+                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name} ${product.categoryId}`}</Link>
                 )}
             </div>
         </>
