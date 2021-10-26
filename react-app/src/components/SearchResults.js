@@ -22,6 +22,8 @@ const SearchResults = () => {
         return arr1.filter(ele => arr2.includes(ele))
     }
 
+
+
     useEffect(() => {
 
         let brandResults = [...productResults];
@@ -61,6 +63,13 @@ const SearchResults = () => {
 
     const handleCategoryClick = (e) => {
         const categoryFilterCopy = [...categoryFilter]
+        const clicked = e.target.classList.contains('isClicked')
+
+        if(!clicked) {
+            e.target.classList.add('isClicked')
+        } else {
+            e.target.classList.remove('isClicked')
+        }
 
         if (categoryFilterCopy.includes(+e.target.id)) {
             const indexOfCategoryId = categoryFilterCopy.indexOf(+e.target.id);
