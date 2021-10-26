@@ -19,7 +19,7 @@ const SearchResults = () => {
 
     useEffect(() => {
         if (brandFilter.length) {
-            setFilteredResults(filteredResults.filter(product => brandFilter.includes(product.brand.toLowerCase())))
+            setFilteredResults(productResults.filter(product => brandFilter.includes(product.brand.toLowerCase())))
         } else {
             setFilteredResults([...productResults])
         }
