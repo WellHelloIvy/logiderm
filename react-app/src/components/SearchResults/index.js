@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
+import './SearchResults.css'
 
 
 const SearchResults = () => {
@@ -116,7 +117,7 @@ const SearchResults = () => {
                         </>
                     )}
                 </div>
-                <div>
+                <div className='price-filter-div'>
                     <b>Price</b>
                     <label for='price-min'></label>
                     <input type='range' id='price-min' name='price-min' />
