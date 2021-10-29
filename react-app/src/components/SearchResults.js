@@ -42,7 +42,7 @@ const SearchResults = () => {
 
         if (categoryFilter.length) {
             categoryResults = (productResults.filter(product => categoryFilter.includes(product.categoryId)))
-        } 
+        }
 
         let filtered = findCommonElements(brandResults, categoryResults)
         if (filtered.length) {
@@ -93,6 +93,9 @@ const SearchResults = () => {
     const categoryIds = new Set(productResults.map(product => product.categoryId))
     const categoryIdsArr = [...categoryIds]
 
+    // const concern = new Set(productResults.map(product => product.categoryId))
+    // const categoryIdsArr = [...concern]
+
     return (
         <>
             <div>
@@ -113,13 +116,20 @@ const SearchResults = () => {
                         </>
                     )}
                 </div>
+                <div>
+                    <b>Price</b>
+                    <label for='price-min'></label>
+                    <input type='range' id='price-min' name='price-min' />
+                    <label for='price-max'></label>
+                    <input type='range' id='price-max' name='price-max' />
+                </div>
             </div>
 
 
             <h2>Products that match your search:</h2>
             <div className='results'>
                 {filteredResults.map(product =>
-                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name} ${product.categoryId}`}</Link>
+                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name} $${product.price / 100}`}</Link>
                 )}
             </div>
         </>
