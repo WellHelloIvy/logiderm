@@ -8,6 +8,8 @@ import './SearchResults.css'
 const SearchResults = () => {
     const [brandFilter, setBrandFilter] = useState([]);
     const [categoryFilter, setCategoryFilter] = useState([]);
+    const [minPrice, setMinPrice] = useState(0)
+    const [maxPrice, setMaxPrice] = useState(200)
     const location = useLocation().search
     const searchQuery = new URLSearchParams(location).get('q')
 
@@ -86,6 +88,15 @@ const SearchResults = () => {
         setCategoryFilter(categoryFilterCopy);
     }
 
+    const handleMinChange = (e) => {
+        if(maxPrice - e.target.value >=10)
+            setMinPrice(e.target.value)
+    }
+
+    const handleMaxChange = (e) => {
+        if(e.target.value - minPrice >=10)
+            setMaxPrice(e.target.value)
+    }
 
 
     const brandNames = new Set(productResults.map(product => product.brand))
@@ -96,6 +107,11 @@ const SearchResults = () => {
 
     // const concern = new Set(productResults.map(product => product.categoryId))
     // const categoryIdsArr = [...concern]
+
+    const minMaxStyling = {
+        '--min': `${minPrice}`,
+        '--max': `${maxPrice}`
+    }
 
     return (
         <>
@@ -119,10 +135,11 @@ const SearchResults = () => {
                 </div>
                 <div className='price-filter-div'>
                     <b>Price</b>
-                    <label for='price-min'></label>
-                    <input type='range' id='price-min' name='price-min' />
-                    <label for='price-max'></label>
-                    <input type='range' id='price-max' name='price-max' />
+                    <div className="slider-container">
+                        <div id='price-slider-label' style={minMaxStyling}>{`Min price: ${minPrice} Max price: ${maxPrice}`}</div>
+                        <input id='min' type='range' min='0' max='200' value={minPrice} onChange={handleMinChange}></input>
+                        <input id='max'type='range'min='0' max='200' value={maxPrice} onChange={handleMaxChange}></input>
+                    </div>
                 </div>
             </div>
 
