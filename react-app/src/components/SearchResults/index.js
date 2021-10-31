@@ -90,22 +90,20 @@ const SearchResults = () => {
 
     useEffect(() => {
         let filler = document.querySelector('.filler-color-div');
-        filler.style.setProperty('width',`${(maxPrice - minPrice)/200 * 100}%` )
-        filler.style.setProperty('margin-left',`${(minPrice)/200 * 100}%` )
+        filler.style.setProperty('width', `${(maxPrice - minPrice) / 200 * 100}%`)
+        filler.style.setProperty('margin-left', `${(minPrice) / 200 * 100}%`)
     }, [minPrice, maxPrice])
 
     const handleMinChange = (e) => {
-        if(maxPrice - e.target.value >=10) {
-             setMinPrice(e.target.value)
+        if (maxPrice - e.target.value >= 10) {
+            setMinPrice(e.target.value)
         }
     }
 
     const handleMaxChange = (e) => {
-        if(e.target.value - minPrice >=10) {
+        if (e.target.value - minPrice >= 10) {
             setMaxPrice(e.target.value)
         }
-
-
     }
 
 
@@ -143,9 +141,13 @@ const SearchResults = () => {
                     <b>Price</b>
                     <div className="slider-container">
                         <div className='filler-color-div'></div>
-                        <div id='price-slider-label' >{`Min price: ${minPrice} Max price: ${maxPrice}`}</div>
+                        <div id='price-slider-label' >
+                            <span>{`Min price: ${minPrice}`}</span>
+                            <span>{`Max price: ${maxPrice}`}</span>
+                        </div>
+
                         <input id='min' type='range' min='0' max='200' value={minPrice} onChange={handleMinChange}></input>
-                        <input id='max'type='range'min='0' max='200' value={maxPrice} onChange={handleMaxChange}></input>
+                        <input id='max' type='range' min='0' max='200' value={maxPrice} onChange={handleMaxChange}></input>
                     </div>
                 </div>
             </div>
