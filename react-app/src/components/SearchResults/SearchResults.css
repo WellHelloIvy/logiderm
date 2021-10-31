@@ -1,0 +1,73 @@
+.slider-container {
+  display: grid;
+  grid-template-rows: max-content 1em;
+
+  margin: 1em auto;
+  width: 20em;
+  background: linear-gradient(0deg, #ccc 1em, transparent 0);
+}
+
+
+.filler-color-div {
+  content: '';
+  background: white;
+  border: 1px solid black;
+  grid-column: 1/ span 1;
+  grid-row: 2;
+  height: 1em;
+  box-sizing: border-box;
+}
+
+#min, #max {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+input[type="range"] {
+  appearance: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: none;
+  color: #000;
+  font: inherit;
+  margin: 0;
+  pointer-events: none;
+
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  border-radius: 0;
+  pointer-events: auto;
+  width: 1.5em;
+  height: 1.5em;
+  position: relative;
+  z-index: 3;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  appearance: none;
+  background: none;
+
+}
+input[type="range"]::-moz-range-track {
+  background: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px; height: 25px; background: black;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: black;
+}
+
+#price-slider-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}

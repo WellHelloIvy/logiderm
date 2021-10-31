@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
+import './SearchResults.css'
 
 
 const SearchResults = () => {
     const [brandFilter, setBrandFilter] = useState([]);
     const [categoryFilter, setCategoryFilter] = useState([]);
+    const [minPrice, setMinPrice] = useState(0)
+    const [maxPrice, setMaxPrice] = useState(200)
     const location = useLocation().search
     const searchQuery = new URLSearchParams(location).get('q')
 
@@ -35,6 +38,7 @@ const SearchResults = () => {
 
         let brandResults = [...productResults];
         let categoryResults = [...productResults];
+        let priceResults = [...productResults];
 
         if (brandFilter.length) {
             brandResults = (productResults.filter(product => brandFilter.includes(product.brand.toLowerCase())))
@@ -42,16 +46,20 @@ const SearchResults = () => {
 
         if (categoryFilter.length) {
             categoryResults = (productResults.filter(product => categoryFilter.includes(product.categoryId)))
-        } 
-
-        let filtered = findCommonElements(brandResults, categoryResults)
-        if (filtered.length) {
-            setFilteredResults([...filtered])
-        } else {
-            setFilteredResults([...productResults])
         }
 
-    }, [brandFilter, categoryFilter, searchQuery])
+        priceResults = (productResults.filter(product => product.price/100 <= maxPrice && product.price/100 >= minPrice))
+
+        let filtered = findCommonElements(brandResults, categoryResults)
+        filtered = findCommonElements(filtered, priceResults)
+
+        setFilteredResults([...filtered])
+
+        // else {
+        //     setFilteredResults([...productResults])
+        // }
+
+    }, [brandFilter, categoryFilter, minPrice, maxPrice, searchQuery])
 
 
     const handleBrandClick = (e) => {
@@ -85,6 +93,23 @@ const SearchResults = () => {
         setCategoryFilter(categoryFilterCopy);
     }
 
+    useEffect(() => {
+        let filler = document.querySelector('.filler-color-div');
+        filler.style.setProperty('width', `${(maxPrice - minPrice) / 200 * 100}%`)
+        filler.style.setProperty('margin-left', `${(minPrice) / 200 * 100}%`)
+    }, [minPrice, maxPrice])
+
+    const handleMinChange = (e) => {
+        if (maxPrice - e.target.value >= 10) {
+            setMinPrice(+e.target.value)
+        }
+    }
+
+    const handleMaxChange = (e) => {
+        if (e.target.value - minPrice >= 10) {
+            setMaxPrice(+e.target.value)
+        }
+    }
 
 
     const brandNames = new Set(productResults.map(product => product.brand))
@@ -92,6 +117,11 @@ const SearchResults = () => {
 
     const categoryIds = new Set(productResults.map(product => product.categoryId))
     const categoryIdsArr = [...categoryIds]
+
+    // const concern = new Set(productResults.map(product => product.categoryId))
+    // const categoryIdsArr = [...concern]
+
+
 
     return (
         <>
@@ -113,13 +143,26 @@ const SearchResults = () => {
                         </>
                     )}
                 </div>
+                <div className='price-filter-div'>
+                    <b>Price</b>
+                    <div className="slider-container">
+                        <div className='filler-color-div'></div>
+                        <div id='price-slider-label' >
+                            <span>{`Min price: ${minPrice}`}</span>
+                            <span>{`Max price: ${maxPrice}`}</span>
+                        </div>
+
+                        <input id='min' type='range' min='0' max='200' value={minPrice} onChange={handleMinChange}></input>
+                        <input id='max' type='range' min='0' max='200' value={maxPrice} onChange={handleMaxChange}></input>
+                    </div>
+                </div>
             </div>
 
 
             <h2>Products that match your search:</h2>
             <div className='results'>
                 {filteredResults.map(product =>
-                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name} ${product.categoryId}`}</Link>
+                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name} $${product.price / 100}`}</Link>
                 )}
             </div>
         </>
