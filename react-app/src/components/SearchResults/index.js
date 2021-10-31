@@ -38,6 +38,7 @@ const SearchResults = () => {
 
         let brandResults = [...productResults];
         let categoryResults = [...productResults];
+        let priceResults = [...productResults];
 
         if (brandFilter.length) {
             brandResults = (productResults.filter(product => brandFilter.includes(product.brand.toLowerCase())))
@@ -47,14 +48,18 @@ const SearchResults = () => {
             categoryResults = (productResults.filter(product => categoryFilter.includes(product.categoryId)))
         }
 
-        let filtered = findCommonElements(brandResults, categoryResults)
-        if (filtered.length) {
-            setFilteredResults([...filtered])
-        } else {
-            setFilteredResults([...productResults])
-        }
+        priceResults = (productResults.filter(product => product.price/100 <= maxPrice && product.price/100 >= minPrice))
 
-    }, [brandFilter, categoryFilter, searchQuery])
+        let filtered = findCommonElements(brandResults, categoryResults)
+        filtered = findCommonElements(filtered, priceResults)
+
+        setFilteredResults([...filtered])
+
+        // else {
+        //     setFilteredResults([...productResults])
+        // }
+
+    }, [brandFilter, categoryFilter, minPrice, maxPrice, searchQuery])
 
 
     const handleBrandClick = (e) => {
@@ -96,13 +101,13 @@ const SearchResults = () => {
 
     const handleMinChange = (e) => {
         if (maxPrice - e.target.value >= 10) {
-            setMinPrice(e.target.value)
+            setMinPrice(+e.target.value)
         }
     }
 
     const handleMaxChange = (e) => {
         if (e.target.value - minPrice >= 10) {
-            setMaxPrice(e.target.value)
+            setMaxPrice(+e.target.value)
         }
     }
 
@@ -115,6 +120,7 @@ const SearchResults = () => {
 
     // const concern = new Set(productResults.map(product => product.categoryId))
     // const categoryIdsArr = [...concern]
+
 
 
     return (
