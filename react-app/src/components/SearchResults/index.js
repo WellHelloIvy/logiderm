@@ -55,10 +55,6 @@ const SearchResults = () => {
 
         setFilteredResults([...filtered])
 
-        // else {
-        //     setFilteredResults([...productResults])
-        // }
-
     }, [brandFilter, categoryFilter, minPrice, maxPrice, searchQuery])
 
 
