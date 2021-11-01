@@ -36,7 +36,7 @@ input[type="range"] {
 
 }
 
-input[type="range"]::-webkit-slider-thumb, ::-moz-range-thumb  {
+input[type="range"]::-moz-range-thumb  {
   appearance: none;
   border-radius: 0;
   pointer-events: auto;
@@ -47,7 +47,24 @@ input[type="range"]::-webkit-slider-thumb, ::-moz-range-thumb  {
   background: black;
 }
 
-input[type="range"]::-webkit-slider-runnable-track, ::-moz-range-track{
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  border-radius: 0;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 25px;
+  background: black;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  appearance: none;
+  background: none;
+
+}
+
+input[type="range"]::-moz-range-track{
   appearance: none;
   background: none;
 
