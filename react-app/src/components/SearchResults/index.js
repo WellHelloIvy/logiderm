@@ -116,7 +116,7 @@ const SearchResults = () => {
     const categoryIdsArr = [...categoryIds]
 
     const handleButtonClick = () => {
-        if(showFilters === true) {
+        if (showFilters === true) {
             setShowFilters(false)
             setToggleShowButton('show')
         } else {
@@ -129,9 +129,11 @@ const SearchResults = () => {
         <>
             <button onClick={handleButtonClick}>{`${toggleShowButton} filters`}</button>
             {showFilters &&
-                <div>
+                <div className='filters-container'>
                     <div>
-                        <b>Brands</b>
+                        <div>
+                            <b>Brands</b>
+                        </div>
                         {brandNamesArr.map(brand =>
                             <>
                                 <input onClick={handleBrandClick} type='checkbox' id={brand} name={`${brand}`} ></input>
@@ -140,7 +142,9 @@ const SearchResults = () => {
                         )}
                     </div>
                     <div>
-                        <b>Categories</b>
+                        <div>
+                            <b>Categories</b>
+                        </div>
                         {categoryIdsArr.map(id =>
                             <>
                                 <button id={id} onClick={handleCategoryClick}>{categoriesObj[+id]}</button>

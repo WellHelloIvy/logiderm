@@ -71,3 +71,13 @@ input[type="range"]::-moz-range-thumb {
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-container > div {
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
