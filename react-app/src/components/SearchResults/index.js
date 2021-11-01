@@ -173,8 +173,6 @@ const SearchResults = () => {
                 </div>
             }
 
-
-
             <h2>Products that match your search:</h2>
             <div className='results'>
                 {filteredResults.map(product =>
