@@ -109,7 +109,7 @@ const SearchResults = () => {
         }
     }
 
-    const brandNames = new Set(productResults.map(product => product.brand))
+    const brandNames = new Set(productResults.map(product => product.brand.toUpperCase()))
     const brandNamesArr = [...brandNames]
 
     const categoryIds = new Set(productResults.map(product => product.categoryId))
@@ -134,30 +134,36 @@ const SearchResults = () => {
                         <div>
                             <b>Brands</b>
                         </div>
-                        {brandNamesArr.map(brand =>
-                            <>
-                                <input onClick={handleBrandClick} type='checkbox' id={brand} name={`${brand}`} ></input>
-                                <label for={`${brand}`}>{`${brand}`}</label>
-                            </>
-                        )}
+                        <div className='brands-div'>
+                            {brandNamesArr.sort().map(brand =>
+                                <div>
+                                    <input onClick={handleBrandClick} type='checkbox' id={brand} name={`${brand}`} ></input>
+                                    <label for={`${brand}`}>{`${brand}`}</label>
+                                </div>
+                            )}
+                        </div>
+
                     </div>
                     <div>
                         <div>
                             <b>Categories</b>
                         </div>
-                        {categoryIdsArr.map(id =>
-                            <>
-                                <button id={id} onClick={handleCategoryClick}>{categoriesObj[+id]}</button>
-                            </>
-                        )}
+                        <div className='categories-div'>
+                            {categoryIdsArr.map(id =>
+                                <div>
+                                    <button id={id} onClick={handleCategoryClick}>{categoriesObj[+id]}</button>
+                                </div>
+                            )}
+                        </div>
+
                     </div>
                     <div className='price-filter-div'>
                         <b>Price</b>
                         <div className="slider-container">
                             <div className='filler-color-div'></div>
                             <div id='price-slider-label' >
-                                <span>{`Min price: ${minPrice}`}</span>
-                                <span>{`Max price: ${maxPrice}`}</span>
+                                <span>{`Min price: $${minPrice}`}</span>
+                                <span>{`Max price: $${maxPrice}`}</span>
                             </div>
 
                             <input id='min' type='range' min='0' max='200' value={minPrice} onChange={handleMinChange}></input>

@@ -43,7 +43,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 1.5em;
   height: 1.5em;
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -80,4 +80,20 @@ input[type="range"]::-moz-range-thumb {
 .filters-container > div {
   margin-top: 2.5%;
   margin-bottom: 2.5%;
+}
+
+.brands-div {
+  display: flex;
+  flex-direction: column;
+  max-height: 20vh;
+  overflow-y: scroll;
+  border: 2px solid black;
+}
+
+.categories-div {
+  display: flex;
+}
+
+.categories-div > div {
+  margin: 2.5%;
 }
