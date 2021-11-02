@@ -1,12 +1,32 @@
+
+#splash-container {
+    background: no-repeat url('https://i.imgur.com/ovB1AZi.jpg');
+
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 60px 1fr 1fr;
+
+    grid-template-areas:
+    '. .'
+    'logo .'
+    '. links'
+    ;
+}
+
 #logo {
-    position: absolute;
+    /* position: absolute;
     left: 6%;
-    top: 7%;
+    top: 7%; */
+
+    grid-area: logo;
     width: 18vw;
     z-index: 1;
     padding: 8px;
     border: 1px solid white;
     max-height: 50vh;
+    justify-self: center;
 }
 
 #banner-gif{
@@ -22,13 +42,16 @@
 }
 
 .prof-div{
-position: absolute;
+/* position: absolute;
 bottom: 0px;
-right: 0px;
+right: 0px; */
+
+grid-area: links;
 background-color: white;
 padding: 1%;
 width: 10vw;
 min-width: fit-content;
+height: fit-content;
 margin: 2%;
 
 display: flex;
@@ -36,21 +59,10 @@ justify-content: space-around;
 
 z-index: 1;
 border: 9px solid black;
-}
 
-/* .dev {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    background-color: black;
-    margin: 4%;
-    padding: 3% 1% 16% 1%;
-    width: 25%;
-    min-width: 223px;
-    height: 10vh;
-    min-height: 5vh;
-    border: 1px solid white;
-} */
+justify-self: end;
+align-self: end;
+}
 
 .dev b {
     color: white;

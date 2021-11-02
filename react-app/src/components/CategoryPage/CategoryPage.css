@@ -1,6 +1,7 @@
 .category-page-container {
     margin-top: 60px;
     padding: 5%;
+    font-family: 'Inter', sans-serif;
 }
 
 .category-page-container a {
@@ -12,6 +13,7 @@
     height: fit-content;
     padding: .4% .6%;
     border-radius: 2px;
+
 }
 
 .category-page-container a:hover {
