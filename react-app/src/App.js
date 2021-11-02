@@ -29,7 +29,7 @@ function App() {
             await dispatch(getProducts());
             setLoaded(true);
             history.listen(() => {
-                document.querySelector('.body').scrollTop = 0
+                document.querySelector('body').scrollTop = 0
             })
         })();
     }, [dispatch, history]);
