@@ -172,13 +172,15 @@ const SearchResults = () => {
                     </div>
                 </div>
             }
-
-            <h2>Products that match your search:</h2>
-            <div className='results'>
-                {filteredResults.map(product =>
-                    <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name} $${product.price / 100}`}</Link>
-                )}
+            <div className='search-results-container'>
+                <h2>Products that match your search:</h2>
+                <div className='results'>
+                    {filteredResults.map(product =>
+                        <Link key={product.id} to={`/products/${product.id}`}>{`${product.brand} ${product.name} $${product.price / 100}`}</Link>
+                    )}
+                </div>
             </div>
+
         </>
     )
 }

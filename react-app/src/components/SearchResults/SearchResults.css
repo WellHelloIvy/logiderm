@@ -1,3 +1,7 @@
+.search-results-container {
+  padding: 0px 15%;
+}
+
 .slider-container {
   display: grid;
   grid-template-rows: max-content 1em;
@@ -79,6 +83,8 @@ input[type="range"]::-moz-range-track{
 .filters-container {
   display: flex;
   flex-direction: column;
+
+  padding: 10%;
 }
 
 .filters-container > div {
@@ -92,6 +98,11 @@ input[type="range"]::-moz-range-track{
   max-height: 20vh;
   overflow-y: scroll;
   border: 2px solid black;
+  max-width: 30%;
+}
+
+.brands-div label {
+  font-family: 'Inter', sans-serif;
 }
 
 .categories-div {
