@@ -1,6 +1,5 @@
-html {
-    overflow-x: hidden;
-    width:100vw
+body {
+    margin: 0px;
 }
 
 button {
@@ -31,24 +30,11 @@ form input {
     outline: none;
 }
 
-.body{
-    position: absolute;
-    left: 0px;
-    top: 40px;
-    height: calc(100vh - 60px);
-    padding: 0 30%;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
-    font-size: 1.1em;
-    color: rgba(0, 0, 0, 0.8);
-    width: 40vw;
-}
-
 .dropdown {
     position: absolute;
     top:40px;
     left: 0px;
-    width: 100%;
+    width: 90vw;
     height: fit-content;
     /* padding: 10% 30% 20%; */
     display: flex;
