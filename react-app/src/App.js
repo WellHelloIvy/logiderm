@@ -41,7 +41,7 @@ function App() {
     return (
         <>
             <NavBar sessionUser={sessionUser} authenticated={authenticated} />
-            <div className='body'>
+
                 <Switch>
                     <Route exact path='/' >
                         <SplashPage />
@@ -60,7 +60,7 @@ function App() {
                     </ProtectedRoute>
                     <PageNotFound />
                 </Switch>
-            </div>
+
         </>
     );
 }

@@ -22,6 +22,7 @@ function ProductPage({ sessionUser }) {
                 }
             </div>
             <div className='ing'>
+                <b>Ingredients:</b>
                 <p>{product.ingredients}</p>
             </div>
 

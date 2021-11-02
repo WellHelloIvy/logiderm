@@ -64,20 +64,6 @@ justify-self: end;
 align-self: end;
 }
 
-/* .dev {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    background-color: black;
-    margin: 4%;
-    padding: 3% 1% 16% 1%;
-    width: 25%;
-    min-width: 223px;
-    height: 10vh;
-    min-height: 5vh;
-    border: 1px solid white;
-} */
-
 .dev b {
     color: white;
     margin-left: 2%;
