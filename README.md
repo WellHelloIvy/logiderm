@@ -1,6 +1,6 @@
 # capstone-project
 
-## https://ivys-capstone.herokuapp.com
+## https://logiderm.herokuapp.com
 
 ## Site description/How to 
 Logiderm is a website dedicated to helping users take on skincare in a more data driven, analytical way. 
